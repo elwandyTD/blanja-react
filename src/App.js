@@ -1,6 +1,4 @@
 function App() {
-
-  localStorage.setItem('bro', JSON.stringify(['slurp', 'slip']))
   return (
     <div className="App">
       <header className="App-header">

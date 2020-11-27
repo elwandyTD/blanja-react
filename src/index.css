@@ -1,13 +1,23 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+	--main-color: #DB3022;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+	font-family: 'Metropolis';
+	src: url(./assets/fonts/Metropolis-Regular.otf);
+}
+@font-face {
+	font-family: 'Metropolis Bold';
+	src: url(./assets/fonts/Metropolis-Bold.otf);
+}
+@font-face {
+	font-family: 'Metropolis Thin';
+	src: url(./assets/fonts/Metropolis-Thin.otf);
+}
+
+body {
+  font-family: 'Metropolis';
+	background-color: #FFFFFF;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
