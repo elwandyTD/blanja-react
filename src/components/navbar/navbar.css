@@ -19,6 +19,11 @@
 	left: 4px;
 }
 
+.stabilizer {
+	height: 100px;
+	width: 100%;
+}
+
 .search-section-md {
 	position: relative;
 	width: 550px;
@@ -174,6 +179,10 @@ a.dropdown-item:hover {
 	.navbar {
 		padding-top: 13px;
 		padding-bottom: 13px;
+	}
+
+	.stabilizer {
+		height: 80px;
 	}
 
 	.search-section-sm {
