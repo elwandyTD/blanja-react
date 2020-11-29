@@ -92,15 +92,11 @@
 	margin-left: 15px;
 	display: inline-block;
 }
-
 .cs-btn-login {
 	border: 1px solid var(--main-color);
 	background-color: var(--main-color);
 	color: white;
 }
-
-/* Mobile */
-
 .cs-btn-group-small {
 	width: 100px;
 }
@@ -138,12 +134,6 @@ a.dropdown-item:hover {
 	background-color: var(--main-color);
 }
 
-/* @media screen and (min-width: 0px) {
-	.cs-btn-group-medium .btn-auth {
-		display: none;
-	}
-} */
-
 @media screen and (min-width: 0px) and (max-width: 767.9px) {
 	.cs-btn-group-medium {
 		width: 150px;
@@ -178,10 +168,6 @@ a.dropdown-item:hover {
 	.search-input .cs-search {
 		width: 331px;
 	}
-}
-
-@media screen and (max-width: 575px) {
-
 }
 
 @media screen and (max-width: 450px) {
