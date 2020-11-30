@@ -8,7 +8,8 @@ import Products from '../components/products/products'
 
 export default class Home extends Component {
 	state = {
-		productNew: []
+		productNew: [],
+		allCategory: [],
 	}
 
 	getNewProducts = () => {
@@ -25,7 +26,23 @@ export default class Home extends Component {
 		})
 	}
 
+	getAllCategory = () => {
+		const url = "http://localhost:8000/category"
+
+		axios
+		.get(url)
+		.then(({ data }) => {
+			this.setState({
+				allCategory: data
+			})
+		})
+		.catch((e) => {
+			console.log(e)
+		})
+	}
+
 	componentDidMount = () => {
+		this.getAllCategory()
 		this.getNewProducts()
 	}
 
@@ -35,7 +52,7 @@ export default class Home extends Component {
 				<Navbar />
 				<Container className="mt-5">
 					<Banner />
-					<Category />
+					<Category categories={this.state.allCategory} />
 					<Products title="New" subtitle="You've never seen it before!" products={this.state.productNew} />
 					<Products title="Popular" subtitle="Find clothes that are trending recently" products={this.state.productNew} />
 				</Container>

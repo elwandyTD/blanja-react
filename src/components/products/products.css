@@ -6,10 +6,8 @@
 }
 
 .cs-card {
-	/* max-width: 210px;
-	min-width: 180px; */
 	width: 208px;
-	height: 278px;
+	height: auto;
 	box-sizing: border-box;
 	border-radius: 8px;
 	box-shadow: 0 0 14px rgba(173, 173, 173, 0.25);
@@ -19,9 +17,6 @@
 }
 .cs-card img.cs-head-card {
 	max-width: 100%;
-	/* height: 136px; */
-	/* margin-left: -15px; */
-	/* object-fit: fill; */
 }
 .cs-card .cs-card-body {
 	padding: 10px;
@@ -69,3 +64,6 @@
 	}
 }
 
+.react-rater-star.is-active, .react-rater-star.will-be-active  {
+	color: #FFBA49 !important;
+}
