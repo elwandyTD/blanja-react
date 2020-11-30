@@ -93,23 +93,18 @@ export default class Category extends Component {
 		}
 		return (
 			<section className="category-section">
-				<span className="category-title">Category</span>
-				<p className="category-subtitle">What are you currently looking for</p>
+				<span className="cs-title">Category</span>
+				<p className="cs-subtitle">What are you currently looking for</p>
 				<Slider {...settings}>
-					{this.state.categories.map((category) => {
+					{this.state.categories.map((category, index) => {
 						return (
-							<div>
+							<div key={index}>
 								<div className="cs-category-item" style={{ backgroundColor: category.color, backgroundImage: `url('${category.img}')` }}>
 								<span>{category.title}</span>
 								</div>
 							</div>
 						)
 					})}
-					{/* <div>
-						<div className="cs-category-item" style={{ backgroundColor: "grey", backgroundImage: "url('https://s3-alpha-sig.figma.com/img/65af/55c4/5d103020c208199aa0396789ad645df1?Expires=1607904000&Signature=Lmc5789rqrQN5z-vOh~8222F0hdNkf3aNJblDK9X6kLiZ7nhDniARnAaOiNKBVNppoH8xEl63DDi1cGiQHCbHTLPdCTAAdkos-S0jh~LxdtjrJGxqST-fBAWy56rQNdRWOYkZyaNFcje4Il63ghG2s7AP70s1XSmQ~8DDmkJol7yR6TB4Ry9VlbRPHv1Mi2Gilkr4Sh0XSzxUzo~Z35GqPuInMwPKxI~yMszBiSNkqJtg2ubV0W3YOYEsxlYbFMnsKSRT5aemB6ygyTow846-jKHW7mPmh5J4iwR7nmUF-Smk6MOs5LNHCIzcrK9OoSPJKXoqGmIPBQIbBJ04wZXVw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA')" }}>
-							<span>Baju</span>
-						</div>
-					</div> */}
         </Slider>
 			</section>
 		)

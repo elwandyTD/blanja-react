@@ -19,3 +19,16 @@ body {
   font-family: 'Metropolis';
 	background-color: #FFFFFF;
 }
+
+.cs-title {
+    font-size: 34px;
+	font-weight: bold;
+	font-family: 'Metropolis Bold';
+	color: #222222;
+}
+
+.cs-subtitle {
+	font-size: 12px;
+	color: #9B9B9B;
+	font-family: 'Metropolis Thin';
+}
