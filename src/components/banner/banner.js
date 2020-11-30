@@ -72,7 +72,7 @@ export default class Banner extends Component {
 		}
 
     return (
-      <section>
+      <section className="mb-5">
         <Slider {...settings}>
 					{this.state.banners.map((banner, index) => {
 						return (

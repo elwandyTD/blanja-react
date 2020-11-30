@@ -41,22 +41,3 @@
 	box-shadow: 0px 4px 10px rgba(181, 181, 181, 0.25);
 	z-index: 20;
 }
-.cs-arrow img {
-	position: relative;
-	top: 14px;
-}
-.cs-arr-left img {
-	left: 18px;
-}
-
-/* .slick-list, .slick-track { touch-action:pan-y; } */
-
-/* @media screen and (min-width: 1199) {
-	.cs-carousel-item {
-		margin-left: 0px;
-	}
-} */
-
-/* .slick-slide {
-  margin: 0px;
-} */
