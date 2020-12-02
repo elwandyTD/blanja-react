@@ -9,6 +9,7 @@
 	background-size: cover;
 	overflow: hidden;
 	margin-left: 11px;
+	cursor: pointer;
 }
 
 .cs-carousel-item span {

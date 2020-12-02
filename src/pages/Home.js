@@ -79,8 +79,8 @@ export default class Home extends Component {
 				<Container className="mt-5">
 					<Banner />
 					<Category categories={this.state.allCategory} />
-					<Products title="New" subtitle="You've never seen it before!" products={this.state.productNew} />
-					<Products title="Popular" subtitle="Find clothes that are trending recently" products={this.state.productNew} />
+					<Products title="New" subtitle="You've never seen it before!" products={this.state.productNew.data} />
+					<Products title="Popular" subtitle="Find clothes that are trending recently" products={this.state.productNew.data} />
 				</Container>
 			</>
 		)

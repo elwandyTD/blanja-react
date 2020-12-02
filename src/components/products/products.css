@@ -19,6 +19,10 @@ a:hover {
 	margin-bottom: 20px;
 	margin-right: auto;
 	cursor: pointer;
+	transition: .3s;
+}
+.cs-card:hover {
+	box-shadow: 0 0 14px rgb(190, 189, 189)
 }
 .cs-card img.cs-head-card {
 	max-width: 100%;
@@ -28,12 +32,12 @@ a:hover {
 }
 .cs-card .cs-card-title {
 	font-size: 16px;
-	font-weight: 500;
+	font-weight: bold;
 	color: #000000;
 	margin-bottom: 7px;
 }
 .cs-card .cs-price {
-	font-weight: 500;
+	font-weight: bold;
 	font-size: 16px;
 	color: var(--main-color);
 	margin-bottom: 4px;

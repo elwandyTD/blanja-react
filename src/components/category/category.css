@@ -8,7 +8,14 @@
 	background-position: center;
 	background-repeat: no-repeat;
 	text-align: center;
+	transition: .3s;
+	cursor: pointer;
 }
+
+.cs-category-item:hover {
+	background-size: auto 150px;
+}
+
 .cs-category-item span {
 	font-family: 'Metropolis Bold';
 	font-size: 30px;
