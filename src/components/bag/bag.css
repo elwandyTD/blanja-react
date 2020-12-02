@@ -1,0 +1,112 @@
+.shopping-summary {
+	border-radius: 4px;
+	background-color: #FFFFFF;
+	box-shadow: 0px 0px 8px rgba(115, 115, 115, 0.25);
+}
+
+.summary-title {
+	font-size: 16px;
+	color: #222222;
+	font-family: 'Metropolis Bold';
+	font-weight: 600;
+}
+.text-price {
+	font-family: 'Metropolis';
+	font-size: 16px;
+	color: #9B9B9B;
+}
+
+.price-count {
+	font-size: 18px;
+	color: #222222;
+	font-weight: bold;
+}
+
+.btn-buy {
+	width: 100%;
+	height: 36px;
+	border-radius: 25px;
+	text-align: center;
+	background-color: var(--main-color);
+	cursor: pointer;
+}
+.btn-buy span {
+	font-size: 14px;
+	line-height: 36px;
+	color: #FFFFFF;
+}
+
+.items-info {
+	border-radius: 4px;
+	background-color: #FFFFFF;
+	box-shadow: 0px 0px 8px rgba(115, 115, 115, 0.25);
+	font-size: 16px;
+	color: #222222;
+}
+
+#select-all {
+	margin-right: 10px;
+	background-color: var(--main-color);
+}
+.sub-info {
+	color: #9B9B9B;
+}
+.items-delete {
+	color: var(--main-color);
+	cursor: pointer;
+}
+
+.bag-item {
+	border-radius: 4px;
+	background-color: #FFFFFF;
+	box-shadow: 0px 0px 8px rgba(115, 115, 115, 0.25);
+	font-size: 16px;
+	color: #222222;
+	margin-bottom: 20px;
+}
+.detail-img {
+	width: 70px;
+	height: 70px;
+	background-position: center;
+	background-size: cover;
+	border-radius: 8px;
+}
+
+.title-info {
+	font-family: 'Metropolis Bold';
+	color: #000000;
+	font-size: 16px;
+}
+.brand-info {
+	color: #9B9B9B;
+	font-size: 12px;
+}
+
+.min-btn, .plus-btn {
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	padding-left: 12px;
+	font-size: 28px;
+	background-color: #FFFFFF;
+	box-shadow: 0 0 4px 0 rgba(142,142,142);
+	cursor: pointer;
+}
+
+.min-btn {
+	padding-left: 13px;
+	background-color: #D4D4D4;
+	color: #FFFFFF;
+}
+.info-num {
+	margin: 0 15px;
+	margin-top: 7px;
+}
+.plus-btn {
+	padding-left: 10px;
+}
+
+.item-price {
+	font-family: 'Metropolis Bold';
+	margin-top: 20px;
+}

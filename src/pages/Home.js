@@ -8,8 +8,12 @@ import Products from '../components/products/products'
 
 export default class Home extends Component {
 	state = {
+		products: [],
 		productNew: [],
 		allCategory: [],
+		allColor: [],
+		allBrand: [],
+		queryFilter: '',
 	}
 
 	getNewProducts = () => {
@@ -41,15 +45,37 @@ export default class Home extends Component {
 		})
 	}
 
+	getQuery = (params) => {
+		const url = 'http://localhost:8000/products?' + params
+
+		axios
+		.get(url)
+		.then(({ data }) => {
+			const { history } = this.props
+			
+			this.setState({
+				products: data
+			})
+			history.push({
+				pathname: '/products',
+				state: this.state
+			})
+		})
+		.catch((e) => {
+			console.log(e)
+		})
+	}
+
 	componentDidMount = () => {
 		this.getAllCategory()
 		this.getNewProducts()
 	}
 
 	render() {
+		
 		return (
 			<>
-				<Navbar />
+				<Navbar getQuery={this.getQuery} />
 				<Container className="mt-5">
 					<Banner />
 					<Category categories={this.state.allCategory} />
