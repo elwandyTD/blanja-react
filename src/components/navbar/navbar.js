@@ -66,11 +66,6 @@ export default class navbar extends Component {
 		if (this.state.query.size) q += `size=${this.state.query.size}&`
 		if (this.state.query.brand) q += `brand=${this.state.query.brand}&`
 
-		// this.props.getQuery(q)
-		// this.props.history.push({
-		// 	pathname: '/products?' + q,
-		// 	state: {params: q}
-		// })
 		this.setState({
 			queryProduct: q
 		})
@@ -192,7 +187,7 @@ export default class navbar extends Component {
 							{this.state.allColor.data && this.state.allColor.data.map((color, index) => {
 								if (index < 7) {
 									return (
-										<div className="color-item" key={index} data-color={color.product_attr_value} style={{ backgroundColor: color.product_attr_value }} onClick={(event)=> this.getColor(event)}></div>
+										<div className="color-item" key={index} data-color={color.color_code} style={{ backgroundColor: color.color_code }} onClick={(event)=> this.getColor(event)}></div>
 									)
 								}
 								return ''

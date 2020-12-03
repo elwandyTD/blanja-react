@@ -8,11 +8,8 @@ import Products from '../components/products/products'
 
 export default class Home extends Component {
 	state = {
-		products: [],
 		productNew: [],
 		allCategory: [],
-		allColor: [],
-		allBrand: [],
 		queryFilter: '',
 	}
 
@@ -69,10 +66,10 @@ export default class Home extends Component {
 	componentDidMount = () => {
 		this.getAllCategory()
 		this.getNewProducts()
+		// console.log(this.props)
 	}
 
 	render() {
-		
 		return (
 			<>
 				<Navbar getQuery={this.getQuery} />

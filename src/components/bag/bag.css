@@ -63,6 +63,8 @@
 	font-size: 16px;
 	color: #222222;
 	margin-bottom: 20px;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 .detail-img {
 	width: 70px;
@@ -76,6 +78,9 @@
 	font-family: 'Metropolis Bold';
 	color: #000000;
 	font-size: 16px;
+	/* white-space: nowrap; */
+	/* overflow: hidden; */
+	text-overflow: ellipsis;
 }
 .brand-info {
 	color: #9B9B9B;

@@ -24,7 +24,6 @@ export default class Category extends Component {
 			infinite: true,
       speed: 500,
 			slidesToShow: 5,
-			swipe: false,
 			nextArrow: <CustomArrow srcImage={RightArrow} className="cs-arrow" />,
 			prevArrow: <CustomArrow srcImage={LeftArrow} className="cs-arrow" />,
 			responsive: [

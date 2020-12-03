@@ -14,9 +14,9 @@ export default function Products({ title, subtitle, products }) {
 					
 				{products && products.map((product, index) => {
 					return (
-						<Link to={{ pathname: '/product/' + product.product_id }}  key={index}>
+						<Link to={{ pathname: '/product/' + product.product_id, state: { products: products, id: product.product_id } }}  key={index}>
 							<div className="cs-card" >
-								<img src="https://s3-alpha-sig.figma.com/img/464a/22c1/4934cf1d9102bfc8ca226895c16fe510?Expires=1607904000&Signature=hjxmkm5vdwrgv5LxRv2gFpN9qIoHk61bYPLf9nQEXcm8h6e~fdOfrjjc28fC70qOLSGe~6JhOElVJpPSqWffK5cyAKRn6wnYiz7zvwp0jVYLB6tkV28TFnQ5m02uSHl85JfEU~PN0QZYkKDujdWDqHJiat9LHlzjAcxwJ2K1-cK9lZBQkjxLUdwWvQqlok~t-QSOjbAtDoQBG53IVZvJtyB4DgWdejLj~jF97RE5iuOVUl0Q5sXADMOAUF-Y-yRPXSNZGVB4yNasQWrnFC5~WWyHLW4WvvKuf7X4GyyqCT3nhKuzPyc386tjBJNc6RHGxIL95onI2Tww5IGFbxNCrQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA" alt="" className="cs-head-card" />
+								<img src={product.product_images[0].product_attr_value} alt="" className="cs-head-card" />
 								<div className="cs-card-body">
 								<p className="cs-card-title">{product.product_title}</p>
 								<p className="cs-price">IDR {new Intl.NumberFormat().format(product.product_price)}</p>
@@ -30,6 +30,8 @@ export default function Products({ title, subtitle, products }) {
 						</Link>
 					)
 				})}
+
+				{/* { (products ? products.length === 0 ? <h1>Data kosong</h1> : <h1>Data ada</h1> : <h1>Data tidak ada</h1>) } */}
 
 			</div>
 		</section>

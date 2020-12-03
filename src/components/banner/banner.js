@@ -50,7 +50,6 @@ export default class Banner extends Component {
 			centerMode: true,
       speed: 500,
 			slidesToShow: 2,
-			swipe: false,
 			nextArrow: <CustomArrow srcImage={RightArrow} className="cs-arrow" />,
 			prevArrow: <CustomArrow srcImage={LeftArrow} className="cs-arrow" />,
 			responsive: [
