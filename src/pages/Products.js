@@ -31,10 +31,10 @@ export default class Products extends Component {
 	}
     
 	render() {
-		const { allBrand, allColor, products } = this.props.location.state
+		console.log(this)
 		return (
 			<>
-				<Navbar colors={allColor} brands={allBrand} getQuery={this.getQuery} />
+				<Navbar />
 				<Container className="mt-3">
 					{/* <section>
 						<span className="cs-title">Products</span>

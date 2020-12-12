@@ -58,6 +58,7 @@ export default class navbar extends Component {
 	}
 
 	getAndSendQuery = (type) => {
+		// const { location } = this.props
 		const searchKey = document.getElementById("search-" + type).value
 
 		let q = ''
@@ -108,6 +109,9 @@ export default class navbar extends Component {
 	}
 
 	render() {
+		// console.log(process.env.REACT_APP_API_URL)
+		console.log(this.props.props)
+
 		return (
 			<>
 			<Navbar bg="white" expand="lg" fixed="top">
@@ -121,14 +125,14 @@ export default class navbar extends Component {
 					<div className="search-section-md">
 						<div className="search-input d-inline-block">
 							<input type="text" className="cs-search" placeholder="Search" id="search-md" />
-							<Link to={{ pathname: '/products?' + this.state.queryProduts }}>
+							{/* <Link to={{ pathname: '/products?' + this.state.queryProduts }}>
 								<div className="search-icon d-inline-block">
 									<img src={SearchIcon} alt="search" height="18" width="18" />
 								</div>
-							</Link>
-							{/* <div className="search-icon d-inline-block" onClick={() => this.getAndSendQuery('md')}>
+							</Link> */}
+							<div className="search-icon d-inline-block" onClick={() => this.getAndSendQuery('md')}>
 								<img src={SearchIcon} alt="search" height="18" width="18" />
-							</div> */}
+							</div>
 						</div>
 						<span className="filter-button d-inline" onClick={this.handleShow}>
 							<img src={FilterIcon} alt="filter" height="15" width="17" />

@@ -1,8 +1,25 @@
 import React from 'react'
 import Logo from '../assets/images/logo.png'
 import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 import './auth/auth.css'
+
+const activeButton = (e) => {
+	const contentPartId = e.target.dataset.id
+	const buttons = document.querySelectorAll(".cs-btn-type")
+	const contentPartSection = document.querySelectorAll(".content-part")
+	// remove class active-type and show-section
+	buttons.forEach((item) => item.classList.remove("active-type"))
+	contentPartSection.forEach((item) => item.classList.remove("show-section"))
+	// add class active-type and show-section
+	document.querySelector(`.btn-type-account div.btn-${contentPartId}`).classList.add("active-type")
+	document.querySelector(`section#${contentPartId}`).classList.add("show-section")
+}
+
+const loginUser = () => {
+
+}
 
 export default function Login() {
 	return (
@@ -13,35 +30,31 @@ export default function Login() {
 			</div>
 			<p className="med-text">Please login with your account</p>
 			<div className="btn-type-account">
-				<div className="cs-btn-type btn-customer active-type" data-id="customer">
-					<span>Custommer</span>
+				<div className="cs-btn-type btn-customer active-type" data-id="customer" onClick={activeButton}>
+					<span data-id="customer">Custommer</span>
 				</div>
-				<div className="cs-btn-type btn-seller" data-id="seller">
-					<span>Seller</span>
+				<div className="cs-btn-type btn-seller" data-id="seller" onClick={activeButton}>
+					<span data-id="seller">Seller</span>
 				</div>
 			</div>
 			<section id="customer" className="content-part show-section">
 				<input type="text" className="cs-form" placeholder="Email" />
 				<input type="password" className="cs-form" placeholder="Password" />
-				<a href="./auth/reset_pass_customer.html" className="forgot-pass">Forgot Password?</a>
-				<Link to={{ pathname: '/' }}>
-					<div className="cs-btn-submit">
-						<span>Primary</span>
-					</div>
-				</Link>
+				<Link to={{ pathName: '/forgot' }} className="forgot-pass">Forgot Password?</Link>
+				<div className="cs-btn-submit" onClick={loginUser}>
+					<span>Primary</span>
+				</div>
 			</section>
 			<section id="seller" className="content-part">
 				<input type="text" className="cs-form" placeholder="Email" />
 				<input type="password" className="cs-form" placeholder="Password" />
-				<a href="./auth/reset_pass_seller.html" className="forgot-pass">Forgot Password?</a>
-				<Link to={{ pathname: '/' }}>
-					<div className="cs-btn-submit">
-						<span>Primary</span>
-					</div>
-				</Link>
+				<Link to={{ pathName: '/forgot' }} className="forgot-pass">Forgot Password?</Link>
+				<div className="cs-btn-submit" onClick={loginUser}>
+					<span>Primary</span>
+				</div>
 			</section>
 			<section className="redirect">
-				<Link to={{  }}>Don't have a Tokopedia account? <a href="./auth/sign_up.html">Register</a></Link>
+				Don't have a Tokopedia account? <Link to={{ pathname: '/register' }}>Register</Link>
 			</section>
 		</div>
 	)

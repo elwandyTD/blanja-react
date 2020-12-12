@@ -31,7 +31,7 @@ export default function Products({ title, subtitle, products }) {
 					)
 				})}
 
-				{/* { (products ? products.length === 0 ? <h1>Data kosong</h1> : <h1>Data ada</h1> : <h1>Data tidak ada</h1>) } */}
+				{ (products ? products.length === 0 ? <h1>Data kosong</h1> : <h1>Data ada</h1> : <h1>Data tidak ada</h1>) }
 
 			</div>
 		</section>

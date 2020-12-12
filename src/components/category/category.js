@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import Slider from 'react-slick'
@@ -17,6 +18,28 @@ function CustomArrow(props) {
 }
 
 export default class Category extends Component {
+	state = {
+		categories: []
+	}
+
+	getAllCategory = () => {
+		const url = "http://localhost:8000/category"
+
+		axios
+		.get(url)
+		.then(({ data }) => {
+			this.setState({
+				categories: data
+			})
+		})
+		.catch((e) => {
+			console.log(e)
+		})
+	}
+
+	componentDidMount = () => {
+		this.getAllCategory()
+	}
 
 	render() {
 		const settings = {
@@ -52,7 +75,7 @@ export default class Category extends Component {
 				<span className="cs-title">Category</span>
 				<p className="cs-subtitle">What are you currently looking for</p>
 				<Slider {...settings}>
-					{this.props.categories.data && this.props.categories.data.map((category, index) => {
+					{this.state.categories.data && this.state.categories.data.map((category, index) => {
 						return (
 							<div key={index}>
 								<div className="cs-category-item" style={{ backgroundColor: category.category_color, backgroundImage: `url('${category.category_image}')` }}>

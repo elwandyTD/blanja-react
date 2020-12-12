@@ -10,11 +10,10 @@ export default class Home extends Component {
 	state = {
 		productNew: [],
 		allCategory: [],
-		queryFilter: '',
 	}
 
 	getNewProducts = () => {
-		const url = "http://localhost:8000/products?order=newest&sort=asc"
+		const url = "http://localhost:8000/product?order=newest&sort=asc"
 		axios
 		.get(url)
 		.then(({ data }) => {
@@ -27,20 +26,6 @@ export default class Home extends Component {
 		})
 	}
 
-	getAllCategory = () => {
-		const url = "http://localhost:8000/category"
-
-		axios
-		.get(url)
-		.then(({ data }) => {
-			this.setState({
-				allCategory: data
-			})
-		})
-		.catch((e) => {
-			console.log(e)
-		})
-	}
 
 	getQuery = (params) => {
 		const url = 'http://localhost:8000/products?' + params
@@ -64,20 +49,20 @@ export default class Home extends Component {
 	}
 
 	componentDidMount = () => {
-		this.getAllCategory()
 		this.getNewProducts()
-		// console.log(this.props)
+		console.log(this.props)
+		console.log(this.state)
 	}
 
 	render() {
 		return (
 			<>
-				<Navbar getQuery={this.getQuery} />
+				<Navbar props={this.props} />
 				<Container className="mt-5">
 					<Banner />
 					<Category categories={this.state.allCategory} />
-					<Products title="New" subtitle="You've never seen it before!" products={this.state.productNew.data} />
-					<Products title="Popular" subtitle="Find clothes that are trending recently" products={this.state.productNew.data} />
+					{/* <Products title="New" subtitle="You've never seen it before!" products={this.state.productNew.data} />
+					<Products title="Popular" subtitle="Find clothes that are trending recently" products={this.state.productNew.data} /> */}
 				</Container>
 			</>
 		)
