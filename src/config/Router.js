@@ -9,7 +9,8 @@ import MyBag from '../pages/MyBag'
 import Checkout from '../pages/Checkout'
 import AdminPage from '../pages/AdminPage'
 import Register from '../pages/auth/Register'
-// import Forgot from '../pages/'
+import Forgot from '../pages/auth/ForgotPass'
+import Confirm from '../pages/auth/ConfirmPass'
 
 export default function Router() {
 	return (
@@ -22,8 +23,8 @@ export default function Router() {
 			<Route path="/post" component={AdminPage} />
 			<Route path="/login" component={Login} />
 			<Route path="/register" component={Register} />
-			<Route path="/forgot" component={Login} />
-			<Route path="/confirm" component={Login} />
+			<Route path="/forgot" component={Forgot} />
+			<Route path="/confirm" component={Confirm} />
 			
 
 		</BrowserRouter>

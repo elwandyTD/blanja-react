@@ -28,7 +28,7 @@ const Login = ({ history }) => {
 			<section id="customer" className="content-part show-section">
 				<input type="text" className="cs-form" placeholder="Email" />
 				<input type="password" className="cs-form" placeholder="Password" />
-				<Link to={{ pathName: '/forgot' }} className="forgot-pass">Forgot Password?</Link>
+				<Link to={{ pathname: '/forgot' }} className="forgot-pass">Forgot Password?</Link>
 				<div className="cs-btn-submit" onClick={() => loginUser(history)}>
 					<span>Primary</span>
 				</div>
@@ -36,7 +36,7 @@ const Login = ({ history }) => {
 			<section id="seller" className="content-part">
 				<input type="text" className="cs-form" placeholder="Email" />
 				<input type="password" className="cs-form" placeholder="Password" />
-				<Link to={{ pathName: '/forgot' }} className="forgot-pass">Forgot Password?</Link>
+				<Link to={{ pathname: '/forgot' }} className="forgot-pass">Forgot Password?</Link>
 				<div className="cs-btn-submit" onClick={() => loginUser(history)}>
 					<span>Primary</span>
 				</div>
