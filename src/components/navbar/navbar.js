@@ -70,7 +70,7 @@ export default class navbar extends Component {
 		this.setState({
 			queryProduct: q
 		})
-		console.log(this.props)
+		// console.log(this.props)
 	}
 
 	getColor = (event) => {
@@ -110,7 +110,7 @@ export default class navbar extends Component {
 
 	render() {
 		// console.log(process.env.REACT_APP_API_URL)
-		console.log(this.props.props)
+		// console.log(this.props.props)
 
 		return (
 			<>
@@ -161,8 +161,12 @@ export default class navbar extends Component {
 						<Link to={{ pathname: '/bag' }}>
 							<img className="cs-cart" src={CartIcon} alt="Cart" />
 						</Link>
-						<div className="cs-btn-login btn-auth">Login</div>
-						<div className="cs-btn-signup btn-auth">Sign up</div>
+						<Link to={{ pathname: '/login' }}>
+							<div className="cs-btn-login btn-auth">Login</div>
+						</Link>
+						<Link to={{ pathname: '/register' }}>
+							<div className="cs-btn-signup btn-auth">Sign up</div>
+						</Link>
 						
 						<Dropdown>
 							<Dropdown.Toggle id="dropdown-auth">

@@ -1,27 +1,15 @@
 import React from 'react'
-import Logo from '../assets/images/logo.png'
 import { Link } from 'react-router-dom'
-import { useHistory } from 'react-router-dom'
+import Logo from '../../assets/images/logo.png'
+import { activeButton } from '../../helpers/function'
 
-import './auth/auth.css'
+import './auth.css'
 
-const activeButton = (e) => {
-	const contentPartId = e.target.dataset.id
-	const buttons = document.querySelectorAll(".cs-btn-type")
-	const contentPartSection = document.querySelectorAll(".content-part")
-	// remove class active-type and show-section
-	buttons.forEach((item) => item.classList.remove("active-type"))
-	contentPartSection.forEach((item) => item.classList.remove("show-section"))
-	// add class active-type and show-section
-	document.querySelector(`.btn-type-account div.btn-${contentPartId}`).classList.add("active-type")
-	document.querySelector(`section#${contentPartId}`).classList.add("show-section")
+const loginUser = (history) => {
+	history.push({ pathname: '/' })
 }
 
-const loginUser = () => {
-
-}
-
-export default function Login() {
+const Login = ({ history }) => {
 	return (
 		<div className="cs-container">
 			<div className="logo">
@@ -41,7 +29,7 @@ export default function Login() {
 				<input type="text" className="cs-form" placeholder="Email" />
 				<input type="password" className="cs-form" placeholder="Password" />
 				<Link to={{ pathName: '/forgot' }} className="forgot-pass">Forgot Password?</Link>
-				<div className="cs-btn-submit" onClick={loginUser}>
+				<div className="cs-btn-submit" onClick={() => loginUser(history)}>
 					<span>Primary</span>
 				</div>
 			</section>
@@ -49,7 +37,7 @@ export default function Login() {
 				<input type="text" className="cs-form" placeholder="Email" />
 				<input type="password" className="cs-form" placeholder="Password" />
 				<Link to={{ pathName: '/forgot' }} className="forgot-pass">Forgot Password?</Link>
-				<div className="cs-btn-submit" onClick={loginUser}>
+				<div className="cs-btn-submit" onClick={() => loginUser(history)}>
 					<span>Primary</span>
 				</div>
 			</section>
@@ -59,3 +47,5 @@ export default function Login() {
 		</div>
 	)
 }
+
+export default Login

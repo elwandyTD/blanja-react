@@ -1,11 +1,8 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react'
+import LoginComp from '../../components/auth/login'
 
-export default function Login() {
-	return (
-		<div>
-			<h1>Login</h1>
-			<p>Go to <Link to={{ pathname: '/' }}>Home</Link></p>
-		</div>
-	)
+export default class Login extends Component {
+	render() {
+		return <LoginComp history={this.props.history} />
+	}
 }
