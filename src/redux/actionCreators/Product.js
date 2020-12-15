@@ -8,3 +8,17 @@ export const getProducts = (queryParams = '') => {
 		payload: axios.get(url + '/product' + queryParams)
 	}
 }
+
+export const getNewProducts = () => {
+	return {
+		type: 'GET_NEW_PRODUCTS',
+		payload: axios.get(url + '/product?order=newest&sort=asc')
+	}
+}
+
+export const getPopularProducts = () => {
+	return {
+		type: 'GET_POPULAR_PRODUCTS',
+		payload: axios.get(url + '/product?order=popular&sort=desc')
+	}
+}

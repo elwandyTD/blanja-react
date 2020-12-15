@@ -1,5 +1,6 @@
 import React from 'react'
-import {BrowserRouter, Route} from 'react-router-dom'
+import { BrowserRouter, Route } from 'react-router-dom'
+import { Provider } from 'react-redux'
 
 import Login from '../pages/auth/Login'
 import Home from '../pages/Home'
@@ -13,20 +14,24 @@ import Forgot from '../pages/auth/ForgotPass'
 import Confirm from '../pages/auth/ConfirmPass'
 import Profile from '../pages/MyProfile'
 
+import store from '../redux/store'
+
 export default function Router() {
 	return (
-		<BrowserRouter>
-			<Route exact path="/" component={Home} />
-			<Route path="/products" component={Products} />
-			<Route path="/product/:id" component={DetailProduct} />
-			<Route path="/bag" component={MyBag} />
-			<Route path="/checkout" component={Checkout} />
-			<Route path="/post" component={AdminPage} />
-			<Route path="/login" component={Login} />
-			<Route path="/register" component={Register} />
-			<Route path="/forgot" component={Forgot} />
-			<Route path="/confirm" component={Confirm} />
-			<Route path="/profile" component={Profile} />
-		</BrowserRouter>
+		<Provider store={store}>
+			<BrowserRouter>
+				<Route exact path="/" component={Home} />
+				<Route path="/products" component={Products} />
+				<Route path="/product/:id" component={DetailProduct} />
+				<Route path="/bag" component={MyBag} />
+				<Route path="/checkout" component={Checkout} />
+				<Route path="/post" component={AdminPage} />
+				<Route path="/login" component={Login} />
+				<Route path="/register" component={Register} />
+				<Route path="/forgot" component={Forgot} />
+				<Route path="/confirm" component={Confirm} />
+				<Route path="/profile" component={Profile} />
+			</BrowserRouter>
+		</Provider>
 	)
 }
