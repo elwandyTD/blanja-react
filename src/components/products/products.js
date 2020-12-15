@@ -16,14 +16,14 @@ export default function Products({ title, subtitle, products }) {
 					return (
 						<Link to={{ pathname: '/product/' + product.product_id, state: { products: products, id: product.product_id } }}  key={index}>
 							<div className="cs-card" >
-								<img src={product.product_images[0].product_attr_value} alt="" className="cs-head-card" />
+								<img src={product.product_images[0].image_path} alt="" className="cs-head-card" />
 								<div className="cs-card-body">
 								<p className="cs-card-title">{product.product_title}</p>
 								<p className="cs-price">IDR {new Intl.NumberFormat().format(product.product_price)}</p>
 									<p className="cs-brand">{product.brand_name}</p>
 									<span>
-										<Rater total={5} rating={2} interactive={false} />
-										<span className="cs-star-review ml-1">(10)</span>
+										<Rater total={5} rating={product.product_rating == null ? 0 : Math.round(product.product_rating)} interactive={false} />
+										<span className="cs-star-review ml-1">({product.review_user})</span>
 									</span>
 								</div>
 							</div>
@@ -31,7 +31,7 @@ export default function Products({ title, subtitle, products }) {
 					)
 				})}
 
-				{ (products ? products.length === 0 ? <h1>Data kosong</h1> : <h1>Data ada</h1> : <h1>Data tidak ada</h1>) }
+				{/* { (products ? products.length === 0 ? <h1>Data kosong</h1> : <h1>Data ada</h1> : <h1>Data tidak ada</h1>) } */}
 
 			</div>
 		</section>

@@ -11,6 +11,7 @@ import AdminPage from '../pages/AdminPage'
 import Register from '../pages/auth/Register'
 import Forgot from '../pages/auth/ForgotPass'
 import Confirm from '../pages/auth/ConfirmPass'
+import Profile from '../pages/MyProfile'
 
 export default function Router() {
 	return (
@@ -25,8 +26,7 @@ export default function Router() {
 			<Route path="/register" component={Register} />
 			<Route path="/forgot" component={Forgot} />
 			<Route path="/confirm" component={Confirm} />
-			
-
+			<Route path="/profile" component={Profile} />
 		</BrowserRouter>
 	)
 }
