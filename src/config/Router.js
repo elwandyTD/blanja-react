@@ -21,7 +21,7 @@ export default function Router() {
 		<Provider store={store}>
 			<BrowserRouter>
 				<Route exact path="/" component={Home} />
-				<Route path="/products" component={Products} />
+				<Route path="/product" component={Products} />
 				<Route path="/product/:id" component={DetailProduct} />
 				<Route path="/bag" component={MyBag} />
 				<Route path="/checkout" component={Checkout} />

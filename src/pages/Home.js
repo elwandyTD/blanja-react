@@ -23,16 +23,16 @@ class Home extends Component {
 	}
 
 	render() {
-		const { newProducts, popularProducts } = this.props.product
+		const { product } = this.props
 
 		return (
 			<>
-				<Navbar props={this.props} />
+				<Navbar history={this.props.history} />
 				<Container className="mt-5">
 					<Banner />
 					<Category />
-					<Products title="New" subtitle="You've never seen it before!" products={newProducts.data.products} />
-					<Products title="Popular" subtitle="Find clothes that are trending recently" products={popularProducts.data.products} />
+					<Products title="New" subtitle="You've never seen it before!" products={product.newProducts.data && product.newProducts.data.products} />
+					<Products title="Popular" subtitle="Find clothes that are trending recently" products={product.popularProducts.data && product.popularProducts.data.products} />
 				</Container>
 			</>
 		)

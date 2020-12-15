@@ -1,7 +1,9 @@
 import React, {Component} from 'react'
 import { Navbar, Container, Dropdown, Modal, Button, Row, Form } from 'react-bootstrap'
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from 'axios'
+import { connect } from 'react-redux'
+import { getColors, getBrands, getCategories } from '../../redux/actionCreators/Attribute'
 
 import './navbar.css'
 import Logo from '../../assets/images/logo.png'
@@ -10,67 +12,59 @@ import FilterIcon from '../../assets/icons/filter.png'
 import CartIcon from '../../assets/icons/cart.png'
 import UserIcon from '../../assets/icons/user.png'
 
-export default class navbar extends Component {
+class navbar extends Component {
 	state = {
 		query: {
 			color: '',
 			size: '',
-			brand: ''
+			brand: '',
+			category: '',
 		},
-		history: [],
-		allColor: [],
-		allBrand: [],
 		show: false,
-		queryProducts: '',
 	}
 
 	handleClose = () => this.setState({ show: false })
 	handleShow = () => this.setState({ show: true })
 
-	getAllColor = () => {
-		const url = "http://localhost:8000/attribute/colors"
-
-		axios
-		.get(url)
-		.then(({ data }) => {
-			this.setState({
-				allColor: data
-			})
-		})
-		.catch((e) => {
-			console.log(e)
-		})
+	getColorsDispatch = () => {
+		this.props.dispatch(getColors())
 	}
 
-	getAllBrand = () => {
-		const url = "http://localhost:8000/attribute/brands"
-
-		axios
-		.get(url)
-		.then(({ data }) => {
-			this.setState({
-				allBrand: data
-			})
-		})
-		.catch((e) => {
-			console.log(e)
-		})
+	getBrandsDispatch = () => {
+		this.props.dispatch(getBrands())
+	}
+	
+	getCategoriesDispatch = () => {
+		this.props.dispatch(getCategories())
 	}
 
 	getAndSendQuery = (type) => {
-		// const { location } = this.props
+		const { history } = this.props
 		const searchKey = document.getElementById("search-" + type).value
 
-		let q = ''
-		if (searchKey) q += `key=${searchKey}&`
-		if (this.state.query.color) q += `color=${this.state.query.color}&`
+		let q = '?'
+		if (searchKey) {
+			q += `search=${searchKey}&` 
+		}
+		if (this.state.query.color) {
+			const queryColor = this.state.query.color.slice(1, this.state.query.color.length)
+			q += `color=${queryColor}&`
+		}
 		if (this.state.query.size) q += `size=${this.state.query.size}&`
 		if (this.state.query.brand) q += `brand=${this.state.query.brand}&`
+		if (this.state.query.category) q += `category=${this.state.query.category}&`
 
-		this.setState({
-			queryProduct: q
+		let queries = ''
+		if (q === '?') {
+			queries = ''
+		} else {
+			queries = q.slice(0, q.length - 1)
+		}
+
+		history.push({
+			pathname: '/product',
+			search: queries
 		})
-		// console.log(this.props)
 	}
 
 	getColor = (event) => {
@@ -78,7 +72,8 @@ export default class navbar extends Component {
 	
 		this.setState({
 			query: {
-				color: color
+				...this.state.query,
+				color,
 			}
 		})
 	}
@@ -88,7 +83,19 @@ export default class navbar extends Component {
 	
 		this.setState({
 			query: {
-				size: size
+				...this.state.query,
+				size,
+			}
+		})
+	}
+	
+	getCategory = (event) => {
+		const category = event.currentTarget.dataset.category
+	
+		this.setState({
+			query: {
+				...this.state.query,
+				category
 			}
 		})
 	}
@@ -98,19 +105,20 @@ export default class navbar extends Component {
 	
 		this.setState({
 			query: {
+				...this.state.query,
 				brand: brand
 			}
 		})
 	}
 
 	componentDidMount = () => {
-		this.getAllBrand()
-		this.getAllColor()
+		this.getColorsDispatch()
+		this.getBrandsDispatch()
+		this.getCategoriesDispatch()
 	}
 
 	render() {
-		// console.log(process.env.REACT_APP_API_URL)
-		// console.log(this.props.props)
+		const { attribute } = this.props
 
 		return (
 			<>
@@ -125,11 +133,6 @@ export default class navbar extends Component {
 					<div className="search-section-md">
 						<div className="search-input d-inline-block">
 							<input type="text" className="cs-search" placeholder="Search" id="search-md" />
-							{/* <Link to={{ pathname: '/products?' + this.state.queryProduts }}>
-								<div className="search-icon d-inline-block">
-									<img src={SearchIcon} alt="search" height="18" width="18" />
-								</div>
-							</Link> */}
 							<div className="search-icon d-inline-block" onClick={() => this.getAndSendQuery('md')}>
 								<img src={SearchIcon} alt="search" height="18" width="18" />
 							</div>
@@ -174,8 +177,8 @@ export default class navbar extends Component {
 							</Dropdown.Toggle>
 							<Dropdown.Menu align="right">
 								<Dropdown.Header>Account</Dropdown.Header>
-								<Dropdown.Item href="" id="login-item">Login</Dropdown.Item>
-								<Dropdown.Item href="" id="signin-item">Sign in</Dropdown.Item>
+								<Link to={{ pathname: '/login' }} className="dropdown-item" id="login-item">Login</Link>
+								<Link to={{ pathname: '/register' }} className="dropdown-item" id="signin-item">Sign Up</Link>
 							</Dropdown.Menu>
 						</Dropdown>
 						
@@ -192,13 +195,10 @@ export default class navbar extends Component {
 							<h4>Colors</h4>
 						</div>
 						<div className="row-color d-flex">
-							{this.state.allColor.data && this.state.allColor.data.map((color, index) => {
-								if (index < 7) {
-									return (
-										<div className="color-item" key={index} data-color={color.color_code} style={{ backgroundColor: color.color_code }} onClick={(event)=> this.getColor(event)}></div>
-									)
-								}
-								return ''
+							{attribute.colors.data && attribute.colors.data.map((color, index) => {
+								return (
+									<div className="color-item" key={index} data-color={color.color_code} style={{ backgroundColor: color.color_code }} onClick={(event)=> this.getColor(event)}></div>
+								)
 							})}
 						</div>
 					</Row>
@@ -228,24 +228,17 @@ export default class navbar extends Component {
 					<hr className="cs-divider" />
 					<Row className="d-flex flex-column pl-5 pr-5 pt-2">
 						<div className="title-part">
-							<h4>Tags</h4>
+							<h4>Categories</h4>
 						</div>
 						<div className="row-category d-flex flex-wrap">
-							<div className="category-item cs-btn-active">
-								<span>all</span>
-							</div>
-							<div className="category-item">
-								<span>women</span>
-							</div>
-							<div className="category-item">
-								<span>men</span>
-							</div>
-							<div className="category-item">
-								<span>boys</span>
-							</div>
-							<div className="category-item">
-								<span>girls</span>
-							</div>
+							{attribute.categories.data && attribute.categories.data.map((category, index) => {
+								return (
+								<div className="category-item" data-category={category.category_link} key={index} onClick={(event) => this.getCategory(event)}>
+									<span>{category.category_name} </span>
+								</div>
+								)
+							})}
+
 						</div>
 					</Row>
 					<hr className="cs-divider" />
@@ -256,7 +249,7 @@ export default class navbar extends Component {
 						<span className="brand-span">There is a lot of brand we have</span>
 						<Form.Control as="select" id="select-brand" onChange={() => this.getBrand()}>
 							<option value="">Select Brand</option>
-							{this.state.allBrand.data && this.state.allBrand.data.map((brand, index) => {
+							{attribute.brands.data && attribute.brands.data.map((brand, index) => {
 								return (
 									<option key={index} value={brand.brand_name}>{brand.brand_name}</option>
 								)
@@ -266,8 +259,18 @@ export default class navbar extends Component {
 					<hr className="cs-divider" />
 				</Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={this.handleClose}>
-            Close
+          <Button variant="secondary" onClick={() => {
+						this.setState({
+							query: {
+								color: '',
+								size: '',
+								brand: '',
+								category: '',
+							},
+						})
+						this.handleClose()
+					}}>
+            Discard
           </Button>
           <Button variant="primary" onClick={this.handleClose}>
             Save Changes
@@ -279,3 +282,11 @@ export default class navbar extends Component {
 		)
 	}
 }
+
+const mapsStateToProps = ({ attribute }) => {
+	return {
+		attribute,
+	}
+}
+
+export default connect(mapsStateToProps)(navbar)

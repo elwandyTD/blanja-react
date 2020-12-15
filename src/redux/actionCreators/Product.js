@@ -12,7 +12,7 @@ export const getProducts = (queryParams = '') => {
 export const getNewProducts = () => {
 	return {
 		type: 'GET_NEW_PRODUCTS',
-		payload: axios.get(url + '/product?order=newest&sort=asc')
+		payload: axios.get(url + '/product?order=newest&sort=desc')
 	}
 }
 

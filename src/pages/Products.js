@@ -4,10 +4,13 @@ import { Link } from 'react-router-dom'
 import Rater from 'react-rater'
 import 'react-rater/lib/react-rater.css'
 import { Container } from 'react-bootstrap'
+import { connect } from 'react-redux'
 
+import { getProducts } from '../redux/actionCreators/Product'
 import Navbar from  '../components/navbar/navbar'
+import ProductsComp from '../components/products/products'
 
-export default class Products extends Component {
+class Products extends Component {
 
 	getQuery = (params) => {
 		const url = 'http://localhost:8000/products?' + params
@@ -29,13 +32,33 @@ export default class Products extends Component {
 			console.log(e)
 		})
 	}
+
+	getProductDispatch = () => {
+		const { search } = this.props.history.location
+
+		this.props.dispatch(getProducts(search))
+	}
+
+	componentDidMount = () => {
+		this.getProductDispatch()
+	}
+
+	componentDidUpdate = (prevState) => {
+		if (prevState.location.key !== this.props.location.key) {
+			this.getProductDispatch()
+		}
+	}
     
 	render() {
+		const { product } = this.props
 		console.log(this)
 		return (
 			<>
-				<Navbar />
+				<Navbar history={this.props.history} />
 				<Container className="mt-3">
+
+					<ProductsComp title="Products" subtitle={this.props.history.location.search !== "" ? "Search and filter result" : "All products we have here !"} products={product.products.data && product.products.data.products} />
+
 					{/* <section>
 						<span className="cs-title">Products</span>
 						<p className="cs-subtitle">All product we have here!</p>
@@ -67,3 +90,11 @@ export default class Products extends Component {
 		)
 	}
 }
+
+const mapsStateToProps = ({ product }) => {
+	return {
+		product
+	}
+}
+
+export default connect(mapsStateToProps)(Products)
