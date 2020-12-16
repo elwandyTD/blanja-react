@@ -1,15 +1,48 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+
+
 import Logo from '../../assets/images/logo.png'
 import { activeButton } from '../../helpers/function'
 
+
 import './auth.css'
 
-const loginUser = (history) => {
-	history.push({ pathname: '/' })
-}
+// const loginUser = (history) => {
+// 	history.push({ pathname: '/' })
+// }
 
-const Login = ({ history }) => {
+const Login = ({ submitForm }) => {
+	const [customerForm, setCustomerForm] = useState({
+		user_email: '',
+		user_password: ''
+	})
+
+	const [sellerForm, setSellerForm] = useState({
+		user_email: '',
+		user_password: ''
+	})
+
+	const customerHandler = (e) =>{
+		const value = e.target.value
+		setCustomerForm({
+			...customerForm,
+			[e.target.name]: value
+		})
+ 	}
+
+	const sellerHandler = (e) =>{
+		const value = e.target.value
+		setSellerForm({
+			...sellerForm,
+			[e.target.name]: value
+		})
+ 	}
+
+	const submitButton = (data, type) => {
+		submitForm(data, type)
+	}
+
 	return (
 		<div className="cs-container">
 			<div className="logo">
@@ -26,18 +59,18 @@ const Login = ({ history }) => {
 				</div>
 			</div>
 			<section id="customer" className="content-part show-section">
-				<input type="text" className="cs-form" placeholder="Email" />
-				<input type="password" className="cs-form" placeholder="Password" />
+				<input type="email" className="cs-form" placeholder="Email" name="user_email" value={customerForm.user_email} onChange={customerHandler} />
+				<input type="password" className="cs-form" placeholder="Password" name="user_password" value={customerForm.user_password} onChange={customerHandler} />
 				<Link to={{ pathname: '/forgot' }} className="forgot-pass">Forgot Password?</Link>
-				<div className="cs-btn-submit" onClick={() => loginUser(history)}>
+				<div className="cs-btn-submit" onClick={() => submitButton(customerForm, 'customer')}>
 					<span>Primary</span>
 				</div>
 			</section>
 			<section id="seller" className="content-part">
-				<input type="text" className="cs-form" placeholder="Email" />
-				<input type="password" className="cs-form" placeholder="Password" />
+				<input type="email" className="cs-form" placeholder="Email" name="user_email" value={sellerForm.user_email} onChange={sellerHandler} />
+				<input type="password" className="cs-form" placeholder="Password" name="user_password" value={sellerForm.user_password} onChange={sellerHandler} />
 				<Link to={{ pathname: '/forgot' }} className="forgot-pass">Forgot Password?</Link>
-				<div className="cs-btn-submit" onClick={() => loginUser(history)}>
+				<div className="cs-btn-submit" onClick={() => submitButton(sellerForm, 'seller')}>
 					<span>Primary</span>
 				</div>
 			</section>

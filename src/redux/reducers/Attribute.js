@@ -22,14 +22,15 @@ const AttributeReducer = (prevState = initialState, action) => {
 		case getColorsString + rejected:
 			return {
 				...prevState,
-				isPending: true,
-				isRejected: false,
+				isPending: false,
+				isRejected: true,
+				err: action.payload.data,
 			}
 		case getColorsString + fulfilled:
 			return {
 				...prevState,
-				isPending: true,
-				isFulfilled: false,
+				isPending: false,
+				isFulfilled: true,
 				colors: action.payload.data
 			}
 		case getBrandsString + pending:
@@ -42,14 +43,15 @@ const AttributeReducer = (prevState = initialState, action) => {
 		case getBrandsString + rejected:
 			return {
 				...prevState,
-				isPending: true,
-				isRejected: false,
+				isPending: false,
+				isRejected: true,
+				err: action.payload.data,
 			}
 		case getBrandsString + fulfilled:
 			return {
 				...prevState,
-				isPending: true,
-				isFulfilled: false,
+				isPending: false,
+				isFulfilled: true,
 				brands: action.payload.data
 			}
 		case getCategoriesString + pending:
@@ -62,14 +64,15 @@ const AttributeReducer = (prevState = initialState, action) => {
 		case getCategoriesString + rejected:
 			return {
 				...prevState,
-				isPending: true,
-				isRejected: false,
+				isPending: false,
+				isRejected: true,
+				err: action.payload.data,
 			}
 		case getCategoriesString + fulfilled:
 			return {
 				...prevState,
-				isPending: true,
-				isFulfilled: false,
+				isPending: false,
+				isFulfilled: true,
 				categories: action.payload.data
 			}
 			

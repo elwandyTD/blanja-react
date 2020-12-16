@@ -51,7 +51,7 @@ class Products extends Component {
     
 	render() {
 		const { product } = this.props
-		console.log(this)
+		
 		return (
 			<>
 				<Navbar history={this.props.history} />
