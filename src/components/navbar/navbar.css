@@ -120,6 +120,16 @@ button#dropdown-auth img{
 	height: 18px;
 	width: 18px;
 }
+button#dropdown-auth-login {
+	background-color: #FFFFFF;
+	border-color: #FFFFFF;
+	border-radius: 50%;
+	padding: 7px 10px;
+}
+button#dropdown-auth-login img{
+	height: 18px;
+	width: 18px;
+}
 button#dropdown-search {
 	display: none;
 	background-color: #FFFFFF;
@@ -133,6 +143,10 @@ button#dropdown-search img {
 #search-dropdown-menu {
 	right: -20vw;
 	padding-left: 5px;
+}
+
+.display-low {
+	display: none;
 }
 
 a.dropdown-item:hover {
@@ -246,6 +260,12 @@ a.dropdown-item:hover {
 	.search-input .cs-search {
 		width: 331px;
 	}
+	.remove-low {
+		display: none;
+	}
+	.display-low {
+		display: inline-block;
+	}
 }
 
 @media screen and (max-width: 450px) {
@@ -344,6 +364,12 @@ a.dropdown-item:hover {
 	#search-dropdown-menu {
 		display: none;
 	}
+	.remove-low {
+		display: none;
+	}
+	.display-low {
+		display: inline-block;
+	}
 }
 
 @media screen and (min-width: 991.99px) and (max-width: 1199px) {
@@ -377,9 +403,23 @@ a.dropdown-item:hover {
 
 	.cs-btn-group-medium {
 		display: block;
+		/* width: 300px; */
+	}
+	.cs-med-big {
+		width: 200px;
 	}
 	#search-dropdown-menu {
 		display: none;
+	}
+	button#dropdown-auth-login {
+		float:right;
+	}
+	.cs-dropdown-auth-2 {
+		top: 50px;
+	}
+	.cs-cart {
+		margin-top: 10px;
+		float: left;
 	}
 }
 

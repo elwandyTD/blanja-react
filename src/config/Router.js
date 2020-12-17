@@ -13,6 +13,7 @@ import Register from '../pages/auth/Register'
 import Forgot from '../pages/auth/ForgotPass'
 import Confirm from '../pages/auth/ConfirmPass'
 import Profile from '../pages/MyProfile'
+import Store from '../pages/store/Store'
 
 import store from '../redux/store'
 
@@ -31,6 +32,8 @@ export default function Router() {
 				<Route path="/forgot" component={Forgot} />
 				<Route path="/confirm" component={Confirm} />
 				<Route path="/profile" component={Profile} />
+				<Route path="/store" component={Store} />
+				<Route path="/store/add" component={Profile} />
 			</BrowserRouter>
 		</Provider>
 	)

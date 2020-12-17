@@ -1,0 +1,54 @@
+.cs-sidebar {
+	width: 28vw;
+	min-height: 85vh;
+	position: fixed;
+	color: #9B9B9B;
+	padding-top: 40px;
+}
+.cs-profile-image {
+	display: inline-block;
+	margin-right: 20px;
+}
+.cs-profile-info-name {
+	width: 200px;
+}
+.cs-user-name {
+	padding: 0px;
+	margin: 0px;
+	font-family: 'Metropolis Bold';
+	font-size: 16px;
+	color: #222222;
+}
+p a.btn-profile-edit {
+	font-size: 14px;
+	color: #9B9B9B;
+}
+.cs-sidebar-items {
+	margin-top: 30px;
+}
+.cs-sidebar-item {
+	margin-top: 20px;
+}
+.cs-sidebar-item p {
+	margin: 5px 0px;
+}
+.cs-sidebar-item-title {
+	color: #222222;
+	font-weight: bold;
+}
+.cs-sidebar-dropdown {
+	padding-left: 20px;
+}
+.cs-sidebar-dropdown a, .cs-sidebar-dropdown p {
+	font-size: 14px;
+	color: #9B9B9B;
+}
+
+.cs-content-section {
+	min-width: 60vw;
+	min-height: 80vh;
+	margin-left: 31vw;
+	margin-top: -40px;
+	padding-top: 80px;
+	padding-left: 15px;
+}

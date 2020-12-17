@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import axios from 'axios'
 import { connect } from 'react-redux'
 import { getColors, getBrands, getCategories } from '../../redux/actionCreators/Attribute'
+import { logoutUser } from '../../redux/actionCreators/Auth'
 
 import './navbar.css'
 import Logo from '../../assets/images/logo.png'
@@ -11,6 +12,9 @@ import SearchIcon from '../../assets/icons/search.png'
 import FilterIcon from '../../assets/icons/filter.png'
 import CartIcon from '../../assets/icons/cart.png'
 import UserIcon from '../../assets/icons/user.png'
+import NotifIcon from '../../assets/icons/notification.png'
+import MailIcon from '../../assets/icons/mail.png'
+import ProfileIcon from '../../assets/icons/profile.png'
 
 class navbar extends Component {
 	state = {
@@ -111,6 +115,70 @@ class navbar extends Component {
 		})
 	}
 
+	logoutUser = async (e) => {
+		e.preventDefault()
+		const token = localStorage.getItem('token')
+
+
+		await this.props.dispatch(logoutUser('Bearer ' + token))
+
+		if (this.props.auth.logout) {
+			this.props.history.push({
+				pathname: '/'
+			})
+		}
+	}
+
+	notLoginNavbar = () => {
+		return (
+			<>
+				<Link to={{ pathname: '/bag' }}>
+					<img className="cs-cart" src={CartIcon} alt="Cart" />
+				</Link>
+				<Link to={{ pathname: '/login' }}>
+					<div className="cs-btn-login btn-auth">Login</div>
+				</Link>
+				<Link to={{ pathname: '/register' }}>
+					<div className="cs-btn-signup btn-auth">Sign up</div>
+				</Link>
+			</>
+		)
+	}
+
+	loginNavbar = () => {
+
+
+		return (
+			<>
+				<Link to={{ pathname: '/bag' }}>
+					<img className="cs-cart mr-4" src={CartIcon} alt="Cart" />
+				</Link>
+				<Link to={{ pathname: '/' }}>
+					<img className="cs-cart mr-4 remove-low" src={NotifIcon} alt="Notification" />
+				</Link>
+				<Link to={{ pathname: '/' }}>
+					<img className="cs-cart remove-low" src={MailIcon} alt="Mail" />
+				</Link>
+				<Dropdown>
+					<Dropdown.Toggle id="dropdown-auth-login">
+						<img src={ProfileIcon} alt="user" />
+					</Dropdown.Toggle>
+					<Dropdown.Menu align="right" className="cs-dropdown-auth-2">
+						<Dropdown.Header className="display-low">Information</Dropdown.Header>
+						<Link to={{ pathname: '/' }} className="dropdown-item display-low" id="login-item">Notification</Link>
+						<Link to={{ pathname: '/' }} className="dropdown-item display-low" id="signin-item">Mail</Link>
+						<Dropdown.Header>Account</Dropdown.Header>
+						<Link to={{ pathname: '/profile' }} className="dropdown-item" id="signin-item">Profile</Link>
+						<Dropdown.Header>Auth</Dropdown.Header>
+
+						<Dropdown.Item href="/" onClick={this.logoutUser}>Logout</Dropdown.Item>
+						{/* <Link to={{ pathname: '/' }} className="dropdown-item" id="login-item">Logout</Link> */}
+					</Dropdown.Menu>
+				</Dropdown>
+			</>
+		)
+	}
+
 	componentDidMount = () => {
 		this.getColorsDispatch()
 		this.getBrandsDispatch()
@@ -118,8 +186,8 @@ class navbar extends Component {
 	}
 
 	render() {
-		const { attribute } = this.props
-
+		const { attribute, auth } = this.props
+		
 		return (
 			<>
 			<Navbar bg="white" expand="lg" fixed="top">
@@ -141,7 +209,7 @@ class navbar extends Component {
 							<img src={FilterIcon} alt="filter" height="15" width="17" />
 						</span>
 					</div>
-					<div className="cs-btn-group-medium">
+					<div className="cs-btn-group-medium ">
 						<Dropdown>
 							<Dropdown.Toggle id="dropdown-search">
 								<img src={SearchIcon} alt="user" />
@@ -161,17 +229,10 @@ class navbar extends Component {
 								</div>
 							</Dropdown.Menu>
 						</Dropdown>
-						<Link to={{ pathname: '/bag' }}>
-							<img className="cs-cart" src={CartIcon} alt="Cart" />
-						</Link>
-						<Link to={{ pathname: '/login' }}>
-							<div className="cs-btn-login btn-auth">Login</div>
-						</Link>
-						<Link to={{ pathname: '/register' }}>
-							<div className="cs-btn-signup btn-auth">Sign up</div>
-						</Link>
+
+						{auth.data.data ? this.loginNavbar() : this.notLoginNavbar()}
 						
-						<Dropdown>
+						{!auth.data.data && <Dropdown>
 							<Dropdown.Toggle id="dropdown-auth">
 								<img src={UserIcon} alt="user" />
 							</Dropdown.Toggle>
@@ -180,11 +241,13 @@ class navbar extends Component {
 								<Link to={{ pathname: '/login' }} className="dropdown-item" id="login-item">Login</Link>
 								<Link to={{ pathname: '/register' }} className="dropdown-item" id="signin-item">Sign Up</Link>
 							</Dropdown.Menu>
-						</Dropdown>
+						</Dropdown>}
 						
 					</div>
 				</Container>
 			</Navbar>
+			{/* Navbar end */}
+
 			<Modal show={this.state.show} onHide={this.handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Filter</Modal.Title>
@@ -283,9 +346,10 @@ class navbar extends Component {
 	}
 }
 
-const mapsStateToProps = ({ attribute }) => {
+const mapsStateToProps = ({ attribute, auth }) => {
 	return {
 		attribute,
+		auth
 	}
 }
 

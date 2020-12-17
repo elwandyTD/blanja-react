@@ -1,30 +1,21 @@
-/* body {
-	background-color: #F5F5F5;
-} */
-.cs-sidebar {
-	width: 28vw;
-	min-height: 85vh;
-	background-color: #FFFFFF;
-	position: fixed;
-}
-
-.cs-detail-page {
-	min-height: 85vh;
-	float: right;
+.cs-content-section {
+	min-width: 60vw;
+	min-height: 80vh;
+	margin-left: 31vw;
+	margin-top: -40px;
+	padding-top: 70px;
+	padding-left: 15px;
 }
 .cs-card-detail {
-	width: 56vw;
-	height: 100%;
+	width: 55vw;
 	padding: 15px;
 	padding-top: 25px;
-	margin-left: 31vw;
-	margin-top: 40px;
-	margin-bottom: 30px;
 	background-color: #FFFFFF;
-	border: 1px solid #9B9B9B;
 	box-sizing: border-box;
 	border-radius: 4px;
 	display: block;
+	margin-bottom: 40px;
+	box-shadow: 0 0 10px #dfdddd;
 }
 .card-detail-title {
 	font-family: 'Metropolis Bold';

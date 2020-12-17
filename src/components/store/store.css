@@ -1,0 +1,17 @@
+.mytable-side {
+    height: 450px;
+    overflow: scroll;
+}
+
+table.all-products {
+    width: 100%;
+}
+table.all-products tr th {
+    text-align: center;
+    background-color: #F5F5F5;
+    color: #9B9B9B
+}
+td, th {
+    padding: 10px;
+}
+
