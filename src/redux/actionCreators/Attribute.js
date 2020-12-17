@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import { getColorsString, getBrandsString, getCategoriesString } from '../actionString'
+import { getColorsString, getBrandsString, getCategoriesString, getSizesString } from '../actionString'
 
 const url = process.env.REACT_APP_API_URL
 
@@ -22,5 +22,12 @@ export const getCategories = () => {
 	return {
 		type: getCategoriesString,
 		payload: axios.get(url + '/category')
+	}
+}
+
+export const getSizes = () => {
+	return {
+		type: getSizesString,
+		payload: axios.get(url + '/attribute/sizes')
 	}
 }

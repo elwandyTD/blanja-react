@@ -1,3 +1,5 @@
+export const postProductString = "POST_PRODUCT"
+
 export const getAttributeString = "GET_ATTRIBUTES"
 export const getColorsString = "GET_COLORS"
 export const getSizesString = "GET_SIZES"

@@ -31,7 +31,7 @@ export default function sidebar() {
 									<Link to={{ pathname: '/store' }}>
 										<p className="sidebar-dropdown-item">My products</p>
 									</Link>
-									<Link to={{ pathname: '/' }}>
+									<Link to={{ pathname: '/sell' }}>
 										<p className="sidebar-dropdown-item">Selling products</p>
 									</Link>
 								</div>

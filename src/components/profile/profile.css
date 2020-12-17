@@ -44,9 +44,17 @@
 .cs-input-group .cs-input-form {
 	width: 22vw;
 }
-.cs-input-group .cs-input-form input {
+.cs-input-group .cs-input-form input[type=text], .cs-input-group .cs-input-form select {
 	width: 22vw;
 	height: 48px;
+	border: 1px solid #9B9B9B;
+	border-radius: 4px;
+	padding-left: 10px;
+	font-size: 14px;
+}
+.cs-input-group .cs-input-form textarea {
+	width: 33vw;
+	height: 40px;
 	border: 1px solid #9B9B9B;
 	border-radius: 4px;
 	padding-left: 10px;

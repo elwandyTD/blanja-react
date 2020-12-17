@@ -1,9 +1,10 @@
-import { getColorsString, getBrandsString, getCategoriesString, pending, rejected, fulfilled } from '../actionString'
+import { getColorsString, getBrandsString, getCategoriesString, getSizesString, pending, rejected, fulfilled } from '../actionString'
 
 const initialState = {
 	colors: {},
 	brands: {},
 	categories: {},
+	sizes: {},
 	isPending: false,
 	isFulfilled: false,
 	isRejected: false,
@@ -74,6 +75,27 @@ const AttributeReducer = (prevState = initialState, action) => {
 				isPending: false,
 				isFulfilled: true,
 				categories: action.payload.data
+			}
+		case getSizesString + pending:
+			return {
+				...prevState,
+				isPending: true,
+				isRejected: false,
+				isFulfilled: false,
+			}
+		case getSizesString + rejected:
+			return {
+				...prevState,
+				isPending: false,
+				isRejected: true,
+				err: action.payload.data,
+			}
+		case getSizesString + fulfilled:
+			return {
+				...prevState,
+				isPending: false,
+				isFulfilled: true,
+				sizes: action.payload.data
 			}
 			
 		default:

@@ -1,6 +1,7 @@
 import axios from 'axios'
+import { postProductString } from '../actionString'
 
-const url = 'http://localhost:8000'
+const url = process.env.REACT_APP_API_URL
 
 export const getProducts = (queryParams = '') => {
 	return {
@@ -20,5 +21,17 @@ export const getPopularProducts = () => {
 	return {
 		type: 'GET_POPULAR_PRODUCTS',
 		payload: axios.get(url + '/product?order=popular&sort=desc')
+	}
+}
+
+export const postProduct = (formData, token) => {
+	return {
+		type: postProductString,
+		payload: axios.post(url + '/product', formData, {
+			headers: {
+				'Content-Type': 'multipart/form-data',
+				'x-access-token': 'Bearer ' + token
+			}
+		})
 	}
 }

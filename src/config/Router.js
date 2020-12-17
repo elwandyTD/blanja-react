@@ -14,6 +14,7 @@ import Forgot from '../pages/auth/ForgotPass'
 import Confirm from '../pages/auth/ConfirmPass'
 import Profile from '../pages/MyProfile'
 import Store from '../pages/store/Store'
+import SellProduct from '../pages/store/SellProduct'
 
 import store from '../redux/store'
 
@@ -23,7 +24,7 @@ export default function Router() {
 			<BrowserRouter>
 				<Route exact path="/" component={Home} />
 				<Route path="/product" component={Products} />
-				<Route path="/product/:id" component={DetailProduct} />
+				<Route exact path="/products/:id" component={DetailProduct} />
 				<Route path="/bag" component={MyBag} />
 				<Route path="/checkout" component={Checkout} />
 				<Route path="/post" component={AdminPage} />
@@ -33,7 +34,7 @@ export default function Router() {
 				<Route path="/confirm" component={Confirm} />
 				<Route path="/profile" component={Profile} />
 				<Route path="/store" component={Store} />
-				<Route path="/store/add" component={Profile} />
+				<Route path="/sell" component={SellProduct} />
 			</BrowserRouter>
 		</Provider>
 	)

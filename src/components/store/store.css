@@ -15,3 +15,8 @@ td, th {
     padding: 10px;
 }
 
+.cs-input-group .cs-input-new {
+    text-align: left;
+    width: 100%;
+}
+

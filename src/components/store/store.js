@@ -10,7 +10,7 @@ import './store.css'
 class MyStore extends Component {
 
 	getMyProductsDispatch = () => {
-		this.props.dispatch(getProducts('?user_id=1'))
+		this.props.dispatch(getProducts('?user_id=2&order=newest&sort=desc'))
 	}
 
 	componentDidMount = () => {

@@ -1,21 +1,22 @@
 // import React, { Component } from 'react'
 import React, { useState } from 'react'
-import {  useHistory } from 'react-router-dom'
+// import {  useHistory } from 'react-router-dom'
 import { Row, Col } from 'react-bootstrap'
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import Slider from 'react-slick'
 import Rater from 'react-rater'
 import 'react-rater/lib/react-rater.css'
-import Products from '../products/products'
+import { connect } from 'react-redux'
+// import Products from '../products/products'
 
 import './detail.css'
 
 const DetailProduct = ({ product, mprops }) => {
-	let newProduct = {}
+	// let newProduct = {}
 	const [qty, setQty] = useState(1)
-	const [color, setColor] = useState(product.length === 0 ? '' : product.product_colors[0].product_color_id )
-	const products = useHistory().location.state.products
+	// const [color, setColor] = useState(product.length === 0 ? '' : product.product_colors[0].product_color_id )
+	// const products = useHistory().location.state.products
 	const settings = {
 		speed: 500,
 		infinite: false,
@@ -29,35 +30,37 @@ const DetailProduct = ({ product, mprops }) => {
 	}
 	const plusQty = () => setQty(qty + 1)
 
-	const addToBag = () => {
-		const myBag = JSON.parse(localStorage.getItem('bag'))
+	// const addToBag = () => {
+	// 	const myBag = JSON.parse(localStorage.getItem('bag'))
 
-		if (color === '') {
-			return alert('Silahkan pilih warna')
-		}
+	// 	if (color === '') {
+	// 		return alert('Silahkan pilih warna')
+	// 	}
 		
-		newProduct = {
-			product_id: product.product_id,
-			product_name: product.product_title,
-			product_brand: product.length === 0 ? '' : product.brand_name,
-			product_color_id: color,
-			product_price: product.length === 0 ? '' : product.product_price,
-			product_image: product.length === 0 ? '' : product.product_images[0].product_attr_value,
-			product_qty: qty
-		}
+	// 	newProduct = {
+	// 		product_id: product.product_id,
+	// 		product_name: product.product_title,
+	// 		product_brand: product.length === 0 ? '' : product.brand_name,
+	// 		product_color_id: color,
+	// 		product_price: product.length === 0 ? '' : product.product_price,
+	// 		product_image: product.length === 0 ? '' : product.product_images[0].product_attr_value,
+	// 		product_qty: qty
+	// 	}
 
-		if (myBag) {
-			myBag.push(newProduct)
-			localStorage.setItem('bag', JSON.stringify(myBag))
-		} else {
-			const data = [newProduct]
-			localStorage.setItem('bag', JSON.stringify(data))
-		}
-	}
+	// 	if (myBag) {
+	// 		myBag.push(newProduct)
+	// 		localStorage.setItem('bag', JSON.stringify(myBag))
+	// 	} else {
+	// 		const data = [newProduct]
+	// 		localStorage.setItem('bag', JSON.stringify(data))
+	// 	}
+	// }
 	
-	const addColor = (newColor) => setColor(newColor)
+	// const addColor = (newColor) => setColor(newColor)
 
-	console.log(mprops)
+	// console.log(mprops)
+	// const 
+
 	return (
 		<>
 			<p className="detail-breadcumb mb-4">Home &gt; Category &gt; <b>{product.category_name}</b></p>
@@ -65,14 +68,14 @@ const DetailProduct = ({ product, mprops }) => {
 				<Col xl={5} lg={5} md={6} sm={12} xs={12}>
 					<Row>
 						<Col className="d-flex">
-							<div className="show-image" style={{ backgroundImage: `url('${product.length === 0 ? '' : product.product_images[0].product_attr_value }')` }}></div>
+							<div className="show-image" style={{ backgroundImage: `url('${product.length === 0 ? '' : process.env.REACT_APP_API_URL + product.product_images[0].image_path }')` }}></div>
 						</Col>
 					</Row>
 					<Row className="mt-1">
 						<div className="images-more">
 							<Slider {...settings}>
 								{product.product_images &&  product.product_images.map((image, index) => {
-									return <div className="image-item" key={index}><img src={image.product_attr_value} alt=""/></div>
+									return <div className="image-item" key={index}><img src={process.env.REACT_APP_API_URL + image.image_path} alt=""/></div>
 								})}
 
 							</Slider>
@@ -91,13 +94,15 @@ const DetailProduct = ({ product, mprops }) => {
 						<span className="detail-price">IDR {new Intl.NumberFormat().format(product.product_price)}</span>
 						<span className="txt-color">Color</span>
 						<div className="colors d-flex mt-1">
-							{product.product_colors && product.product_colors.map((color, index) => {
+							{/* {product.product_colors.length && product.product_colors.map((color, index) => {
 								return (
-									<div className="color-item" key={index} onClick={() => addColor(color.product_color_id)}>
+									<div className="color-item" key={index}>
 										<div style={{ backgroundColor: color.product_attr_value }}></div>
 									</div>
 								)
-							})}
+							})} */}
+
+							{console.log(product.product_colors && product.product_colors)}
 						</div>
 						<div className="size-qty d-flex">
 							<div className="sizes">
@@ -107,7 +112,7 @@ const DetailProduct = ({ product, mprops }) => {
 										<span>-</span>
 									</div>
 									<div className="current-size">
-									{product.length === 0 ? '' : product.product_sizes[0].product_attr_value.toUpperCase() }
+									{/* {product.length === 0 ? '' : product.product_sizes[0].product_attr_value.toUpperCase() } */} XL
 									</div>
 									<div className="plus-btn">
 										<span>+</span>
@@ -138,7 +143,7 @@ const DetailProduct = ({ product, mprops }) => {
 								</div>
 							</Col>
 							<Col xl={3} lg={3} md={6} sm={6} xs={6}>
-								<div className="btn-detail" onClick={() => addToBag()}>
+								<div className="btn-detail" >
 									<span>Add bag</span>
 								</div>
 							</Col>
@@ -234,12 +239,19 @@ const DetailProduct = ({ product, mprops }) => {
 			</Row>
 			<Row>
 				<Col>
-					<Products title="You can also like this" subtitle="You’ve never seen it before!" products={products} />
+					{/* <Products title="You can also like this" subtitle="You’ve never seen it before!" products={products} /> */}
 				</Col>
 			</Row>
+			{/* {console.log(product && product)} */}
 		</>
 	)
 }
 
-export default DetailProduct
+const mapsStateToProps = ({ product }) => {
+	return {
+		product
+	}
+}
+
+export default connect(mapsStateToProps)(DetailProduct)
 

@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
 import { Navbar, Container, Dropdown, Modal, Button, Row, Form } from 'react-bootstrap'
 import { Link } from "react-router-dom";
-import axios from 'axios'
+// import axios from 'axios'
 import { connect } from 'react-redux'
-import { getColors, getBrands, getCategories } from '../../redux/actionCreators/Attribute'
+import { getColors, getBrands, getCategories, getSizes } from '../../redux/actionCreators/Attribute'
 import { logoutUser } from '../../redux/actionCreators/Auth'
 
 import './navbar.css'
@@ -40,6 +40,10 @@ class navbar extends Component {
 	
 	getCategoriesDispatch = () => {
 		this.props.dispatch(getCategories())
+	}
+
+	getSizesDispatch = () => {
+		this.props.dispatch(getSizes())
 	}
 
 	getAndSendQuery = (type) => {
@@ -146,8 +150,6 @@ class navbar extends Component {
 	}
 
 	loginNavbar = () => {
-
-
 		return (
 			<>
 				<Link to={{ pathname: '/bag' }}>
@@ -172,7 +174,6 @@ class navbar extends Component {
 						<Dropdown.Header>Auth</Dropdown.Header>
 
 						<Dropdown.Item href="/" onClick={this.logoutUser}>Logout</Dropdown.Item>
-						{/* <Link to={{ pathname: '/' }} className="dropdown-item" id="login-item">Logout</Link> */}
 					</Dropdown.Menu>
 				</Dropdown>
 			</>
@@ -183,6 +184,7 @@ class navbar extends Component {
 		this.getColorsDispatch()
 		this.getBrandsDispatch()
 		this.getCategoriesDispatch()
+		this.getSizesDispatch()
 	}
 
 	render() {
