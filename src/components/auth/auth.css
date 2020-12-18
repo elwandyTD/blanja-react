@@ -78,7 +78,7 @@ a:hover {
 	background-color: var(--main-color);
 	color: #FFFFFF;
 	border: 1px solid var(--main-color);
-	transition: .5s;
+	transition: .3s;
 }
 
 .btn-customer {
@@ -92,7 +92,6 @@ a:hover {
 }
 
 .content-part {
-	margin-top: 25px;
 	display: none;
 }
 .show-section {

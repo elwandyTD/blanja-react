@@ -25,6 +25,7 @@ class navbar extends Component {
 			category: '',
 		},
 		show: false,
+		isLogin: false,
 	}
 
 	handleClose = () => this.setState({ show: false })
@@ -121,14 +122,24 @@ class navbar extends Component {
 
 	logoutUser = async (e) => {
 		e.preventDefault()
-		const token = localStorage.getItem('token')
+		const user = JSON.parse(localStorage.getItem('user'))
+		
+		if ( user ) {
+			await this.props.dispatch(logoutUser('Bearer ' + user.token ))
 
+			localStorage.removeItem('user')
 
-		await this.props.dispatch(logoutUser('Bearer ' + token))
+			this.setState({
+				isLogin: false
+			})
+		}
+	}
 
-		if (this.props.auth.logout) {
-			this.props.history.push({
-				pathname: '/'
+	setNavbar = () => {
+		const user = JSON.parse(localStorage.getItem('user'))
+		if (user) {
+			this.setState({
+				isLogin: true
 			})
 		}
 	}
@@ -181,15 +192,37 @@ class navbar extends Component {
 	}
 
 	componentDidMount = () => {
+		this.setNavbar()
 		this.getColorsDispatch()
 		this.getBrandsDispatch()
 		this.getCategoriesDispatch()
 		this.getSizesDispatch()
+
+		// const user = JSON.parse(localStorage.getItem('user'))
+		// if (user) {
+		// 	this.setState({
+		// 		isLogin: true
+		// 	})
+		// }
+	}
+
+	componentDidUpdate = () => {
+		// console.log(this.props)
+		// if (this.props.auth.logout.isLogout) {
+		// 	console.log('user logout')
+		// 	// this.props.history.push({
+		// 	// 	pathname: '/'
+		// 	// })
+		// 	// this.setState({
+		// 	// 	isLogin: false
+		// 	// })
+		// 	this.updateNavbar()
+		// }
 	}
 
 	render() {
-		const { attribute, auth } = this.props
-		
+		const { attribute } = this.props
+
 		return (
 			<>
 			<Navbar bg="white" expand="lg" fixed="top">
@@ -232,9 +265,9 @@ class navbar extends Component {
 							</Dropdown.Menu>
 						</Dropdown>
 
-						{auth.data.data ? this.loginNavbar() : this.notLoginNavbar()}
+						{this.state.isLogin ? this.loginNavbar() : this.notLoginNavbar()}
 						
-						{!auth.data.data && <Dropdown>
+						{!this.state.isLogin && <Dropdown>
 							<Dropdown.Toggle id="dropdown-auth">
 								<img src={UserIcon} alt="user" />
 							</Dropdown.Toggle>

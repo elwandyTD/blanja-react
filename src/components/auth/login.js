@@ -8,11 +8,7 @@ import { activeButton } from '../../helpers/function'
 
 import './auth.css'
 
-// const loginUser = (history) => {
-// 	history.push({ pathname: '/' })
-// }
-
-const Login = ({ submitForm }) => {
+const Login = ({ submitForm, error }) => {
 	const [customerForm, setCustomerForm] = useState({
 		user_email: '',
 		user_password: ''
@@ -58,7 +54,10 @@ const Login = ({ submitForm }) => {
 					<span data-id="seller">Seller</span>
 				</div>
 			</div>
-			<section id="customer" className="content-part show-section">
+
+			{error !== '' ? <span className="text-danger mt-3">{error}</span> : <span className="text-danger mt-3"></span> }
+
+			<section id="customer" className="content-part show-section ">
 				<input type="email" className="cs-form" placeholder="Email" name="user_email" value={customerForm.user_email} onChange={customerHandler} />
 				<input type="password" className="cs-form" placeholder="Password" name="user_password" value={customerForm.user_password} onChange={customerHandler} />
 				<Link to={{ pathname: '/forgot' }} className="forgot-pass">Forgot Password?</Link>

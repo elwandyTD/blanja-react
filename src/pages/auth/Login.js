@@ -5,18 +5,45 @@ import { loginUser } from '../../redux/actionCreators/Auth'
 import { isLogin } from '../../helpers/auth'
 
 class Login extends Component {
+	state = {
+		error: ''
+	}
+
 	submitForm = async (data, type) => {
-		await this.props.dispatch(loginUser(data, type))
-		const { auth } = this.props
-
-		if ( auth.data.data ) {
-			localStorage.setItem('token', auth.data.data.token)
-
-			this.props.history.push({
-				pathname: '/'
+		const { user_email, user_password } = data
+		
+		if (user_email === '' && user_password === '') {
+			this.setState({
+				error: 'Silahkan isi email dan password'
+			})
+		} else if (user_email === '') {
+			this.setState({
+				error: 'Silahkan isi email'
+			})
+		} else if (user_password === '') {
+			this.setState({
+				error: 'Silahkan isi password'
 			})
 		} else {
-			console.log(auth.data.err)
+			await this.props.dispatch(loginUser(data, type))
+
+			const { auth } = this.props
+
+			if ( auth.data.data ) {
+				this.setState({
+					error: ''
+				})
+
+				localStorage.setItem('user', JSON.stringify(auth.data.data))
+	
+				this.props.history.push({
+					pathname: '/'
+				})
+			} else {
+				this.setState({
+					error: auth.data.err
+				})
+			}
 		}
 	}
 	componentDidMount = () => {
@@ -24,7 +51,7 @@ class Login extends Component {
 	}
 
 	render() {
-		return <LoginComp history={this.props.history} submitForm={this.submitForm} />
+		return <LoginComp submitForm={this.submitForm} error={this.state.error} />
 	}
 }
 
