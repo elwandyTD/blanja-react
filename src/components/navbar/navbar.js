@@ -164,17 +164,17 @@ class navbar extends Component {
 		return (
 			<>
 				<Link to={{ pathname: '/bag' }}>
-					<img className="cs-cart mr-4" src={CartIcon} alt="Cart" />
+					<img className="cs-cart" src={CartIcon} alt="Cart" />
 				</Link>
 				<Link to={{ pathname: '/' }}>
-					<img className="cs-cart mr-4 remove-low" src={NotifIcon} alt="Notification" />
+					<img className="cs-cart remove-low" src={NotifIcon} alt="Notification" />
 				</Link>
 				<Link to={{ pathname: '/' }}>
 					<img className="cs-cart remove-low" src={MailIcon} alt="Mail" />
 				</Link>
 				<Dropdown>
-					<Dropdown.Toggle id="dropdown-auth-login on-md">
-						<img src={ProfileIcon} alt="user" />
+					<Dropdown.Toggle id="dropdown-auth-login">
+						<img src="https://widgetwhats.com/app/uploads/2019/11/free-profile-photo-whatsapp-4.png" alt="user" />
 					</Dropdown.Toggle>
 					<Dropdown.Menu align="right" className="cs-dropdown-auth-2">
 						<Dropdown.Header className="display-low">Information</Dropdown.Header>
