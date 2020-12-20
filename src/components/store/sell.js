@@ -8,7 +8,7 @@ import axios from 'axios'
 
 import './store.css'
 
-function SellProduct({ attribute, dispatch, history }) {
+const SellProduct = ({ attribute, history }) => {
 
 	const [dataForm, setDataForm] = useState({
 		title: '',
@@ -77,7 +77,7 @@ function SellProduct({ attribute, dispatch, history }) {
 			})
 		})
 		.catch((err) => {
-
+			console.log(err)
 		})
 	}
 
@@ -92,8 +92,8 @@ function SellProduct({ attribute, dispatch, history }) {
 					</Row>
 					<hr/>
 					<Row className="cs-card-body">
-						<Col xl={8} lg={8} md={8} sm={12} xs={12} className="">
-							<div	div className="cs-input-group">
+						<Col xl={8} lg={8} md={8} sm={12} xs={12}>
+							<div className="cs-input-group">
 								<div className="cs-input-label d-block cs-input-new">Name of goods</div>
 								<div className="cs-input-form d-block">
 									<input type="text" name="title" onChange={dataHandler} />
@@ -112,8 +112,8 @@ function SellProduct({ attribute, dispatch, history }) {
 					</Row>
 					<hr/>
 					<Row className="cs-card-body">
-					<Col xl={8} lg={8} md={8} sm={12} xs={12} className="">
-							<div	div className="cs-input-group">
+					<Col xl={8} lg={8} md={8} sm={12} xs={12}>
+							<div className="cs-input-group">
 								<div className="cs-input-label d-block cs-input-new">Category</div>
 								<div className="cs-input-form d-block">
 									<select name="category" id="" onChange={dataHandler}>
@@ -124,8 +124,8 @@ function SellProduct({ attribute, dispatch, history }) {
 								</div>
 							</div>
 						</Col>
-						<Col xl={8} lg={8} md={8} sm={12} xs={12} className="">
-							<div	div className="cs-input-group">
+						<Col xl={8} lg={8} md={8} sm={12} xs={12}>
+							<div className="cs-input-group">
 								<div className="cs-input-label d-block cs-input-new">Brands</div>
 								<div className="cs-input-form d-block">
 									<select name="brand" id="" onChange={dataHandler}>
@@ -136,24 +136,24 @@ function SellProduct({ attribute, dispatch, history }) {
 								</div>
 							</div>
 						</Col>
-						<Col xl={8} lg={8} md={8} sm={12} xs={12} className="">
-							<div	div className="cs-input-group">
+						<Col xl={8} lg={8} md={8} sm={12} xs={12}>
+							<div className="cs-input-group">
 								<div className="cs-input-label d-block cs-input-new">Unit price</div>
 								<div className="cs-input-form d-block">
 									<input type="text" name="price" placeholder="" onChange={dataHandler}/>
 								</div>
 							</div>
 						</Col>
-						<Col xl={8} lg={8} md={8} sm={12} xs={12} className="">
-							<div	div className="cs-input-group">
+						<Col xl={8} lg={8} md={8} sm={12} xs={12}>
+							<div className="cs-input-group">
 								<div className="cs-input-label d-block cs-input-new">Stock</div>
 								<div className="cs-input-form d-block">
 									<input type="text" name="qty" placeholder="" onChange={dataHandler}/>
 								</div>
 							</div>
 						</Col>
-						<Col xl={8} lg={8} md={8} sm={12} xs={12} className="">
-							<div	div className="cs-input-group">
+						<Col xl={8} lg={8} md={8} sm={12} xs={12}>
+							<div className="cs-input-group">
 								<div className="cs-input-label d-block cs-input-new">Condition</div>
 								<div className="cs-input-form d-block">
 									{/* <input type="text" placeholder=""/> */}
@@ -177,8 +177,8 @@ function SellProduct({ attribute, dispatch, history }) {
 					</Row>
 					<hr/>
 					<Row className="cs-card-body">
-						<Col xl={8} lg={8} md={8} sm={12} xs={12} className="">
-							<div	div className="cs-input-group">
+						<Col xl={8} lg={8} md={8} sm={12} xs={12}>
+							<div className="cs-input-group">
 								<div className="cs-input-label d-block cs-input-new">Main photo</div>
 								<div className="cs-input-form d-block">
 									<input type="file" onChange={(e) => imageHandler(e)} multiple/>
@@ -197,8 +197,8 @@ function SellProduct({ attribute, dispatch, history }) {
 					</Row>
 					<hr/>
 					<Row className="cs-card-body">
-						<Col xl={12} lg={12} md={12} sm={12} xs={12} className="">
-							<div	div className="cs-input-group">
+						<Col xl={12} lg={12} md={12} sm={12} xs={12}>
+							<div className="cs-input-group">
 								<div className="cs-input-label d-block cs-input-new">Description of good</div>
 								<div className="cs-input-form d-block">
 									<textarea name="desc" id="" cols="30" rows="30" onChange={dataHandler}></textarea>

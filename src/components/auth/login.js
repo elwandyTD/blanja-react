@@ -35,7 +35,9 @@ const Login = ({ submitForm, error }) => {
 		})
  	}
 
-	const submitButton = (data, type) => {
+	const submitButton = (e, data, type) => {
+		e.preventDefault()
+
 		submitForm(data, type)
 	}
 
@@ -58,20 +60,22 @@ const Login = ({ submitForm, error }) => {
 			{error !== '' ? <span className="text-danger mt-3">{error}</span> : <span className="text-danger mt-3"></span> }
 
 			<section id="customer" className="content-part show-section ">
-				<input type="email" className="cs-form" placeholder="Email" name="user_email" value={customerForm.user_email} onChange={customerHandler} />
-				<input type="password" className="cs-form" placeholder="Password" name="user_password" value={customerForm.user_password} onChange={customerHandler} />
-				<Link to={{ pathname: '/forgot' }} className="forgot-pass">Forgot Password?</Link>
-				<div className="cs-btn-submit" onClick={() => submitButton(customerForm, 'customer')}>
-					<span>Primary</span>
-				</div>
+				<form onSubmit={(e) => submitButton(e, customerForm, 'customer')} >
+					<input type="email" className="cs-form" placeholder="Email" name="user_email" value={customerForm.user_email} onChange={customerHandler} />
+					<input type="password" className="cs-form" placeholder="Password" name="user_password" value={customerForm.user_password} onChange={customerHandler} />
+					<Link to={{ pathname: '/forgot' }} className="forgot-pass">Forgot Password?</Link>
+					<br/>
+					<button type="submit" className="cs-btn-submit">Primary</button>
+				</form>
 			</section>
 			<section id="seller" className="content-part">
-				<input type="email" className="cs-form" placeholder="Email" name="user_email" value={sellerForm.user_email} onChange={sellerHandler} />
-				<input type="password" className="cs-form" placeholder="Password" name="user_password" value={sellerForm.user_password} onChange={sellerHandler} />
-				<Link to={{ pathname: '/forgot' }} className="forgot-pass">Forgot Password?</Link>
-				<div className="cs-btn-submit" onClick={() => submitButton(sellerForm, 'seller')}>
-					<span>Primary</span>
-				</div>
+				<form onSubmit={(e) => submitButton(e, sellerForm, 'seller')}>
+					<input type="email" className="cs-form" placeholder="Email" name="user_email" value={sellerForm.user_email} onChange={sellerHandler} />
+					<input type="password" className="cs-form" placeholder="Password" name="user_password" value={sellerForm.user_password} onChange={sellerHandler} />
+					<Link to={{ pathname: '/forgot' }} className="forgot-pass">Forgot Password?</Link>
+					<br/>
+					<button type="submit" className="cs-btn-submit">Primary</button>
+				</form>
 			</section>
 			<section className="redirect">
 				Don't have a Tokopedia account? <Link to={{ pathname: '/register' }}>Register</Link>

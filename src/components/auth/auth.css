@@ -134,6 +134,9 @@ a:hover {
 	clear: right;
 	cursor: pointer;
 	border-radius: 25px;
+	border: none;
+	font-size: 14px;
+	text-transform: uppercase;
 }
 .cs-btn-submit span {
 	position: relative;

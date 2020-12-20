@@ -126,6 +126,9 @@ button#dropdown-auth-login {
 	border-radius: 50%;
 	padding: 7px 10px;
 }
+.on-md {
+	
+}
 button#dropdown-auth-login img{
 	height: 18px;
 	width: 18px;

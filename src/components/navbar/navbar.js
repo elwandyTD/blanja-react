@@ -173,7 +173,7 @@ class navbar extends Component {
 					<img className="cs-cart remove-low" src={MailIcon} alt="Mail" />
 				</Link>
 				<Dropdown>
-					<Dropdown.Toggle id="dropdown-auth-login">
+					<Dropdown.Toggle id="dropdown-auth-login on-md">
 						<img src={ProfileIcon} alt="user" />
 					</Dropdown.Toggle>
 					<Dropdown.Menu align="right" className="cs-dropdown-auth-2">
@@ -197,27 +197,6 @@ class navbar extends Component {
 		this.getBrandsDispatch()
 		this.getCategoriesDispatch()
 		this.getSizesDispatch()
-
-		// const user = JSON.parse(localStorage.getItem('user'))
-		// if (user) {
-		// 	this.setState({
-		// 		isLogin: true
-		// 	})
-		// }
-	}
-
-	componentDidUpdate = () => {
-		// console.log(this.props)
-		// if (this.props.auth.logout.isLogout) {
-		// 	console.log('user logout')
-		// 	// this.props.history.push({
-		// 	// 	pathname: '/'
-		// 	// })
-		// 	// this.setState({
-		// 	// 	isLogin: false
-		// 	// })
-		// 	this.updateNavbar()
-		// }
 	}
 
 	render() {
