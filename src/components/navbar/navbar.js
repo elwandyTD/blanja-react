@@ -132,6 +132,11 @@ class navbar extends Component {
 			this.setState({
 				isLogin: false
 			})
+
+			console.log(this.state.isLogin)
+
+			const { history } = this.props
+			history.push('/')
 		}
 	}
 
@@ -223,7 +228,7 @@ class navbar extends Component {
 							<img src={FilterIcon} alt="filter" height="15" width="17" />
 						</span>
 					</div>
-					<div className="cs-btn-group-medium ">
+					<div className={this.state.isLogin ? "cs-btn-group-medium" : "cs-btn-group-medium cs-is-not-login" }>
 						<Dropdown>
 							<Dropdown.Toggle id="dropdown-search">
 								<img src={SearchIcon} alt="user" />

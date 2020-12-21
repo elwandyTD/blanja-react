@@ -8,7 +8,7 @@ export default class SellProduct extends Component {
 	render() {
 		return (
 			<>
-				<Navbar />
+				<Navbar history={this.props.history} />
 				<Sidebar />
 				<div className="cs-content-section">
 					<Sell history={this.props.history} />

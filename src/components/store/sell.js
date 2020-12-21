@@ -39,46 +39,48 @@ const SellProduct = ({ attribute, history }) => {
 	}
 
 	const myPostProduct = () => {
-		let formData = new FormData()
+		const user = JSON.parse(localStorage.getItem('user'))
+		console.log(user)
+		// let formData = new FormData()
 
-		formData.append('user_id', 2)
-		formData.append('product_title', dataForm.title)
-		formData.append('brand_id', Number(dataForm.brand))
-		formData.append('category_id', Number(dataForm.category))
-		formData.append('product_price', Number(dataForm.price))
-		formData.append('product_qty', Number(dataForm.qty))
-		formData.append('product_condition', dataForm.condition)
-		formData.append('product_description', dataForm.desc)
-		for (let i = 0; i < dataForm.images.length; i ++) {
-			formData.append('upload_images', dataForm.images[i])
-		}
+		// formData.append('user_id', 2)
+		// formData.append('product_title', dataForm.title)
+		// formData.append('brand_id', Number(dataForm.brand))
+		// formData.append('category_id', Number(dataForm.category))
+		// formData.append('product_price', Number(dataForm.price))
+		// formData.append('product_qty', Number(dataForm.qty))
+		// formData.append('product_condition', dataForm.condition)
+		// formData.append('product_description', dataForm.desc)
+		// for (let i = 0; i < dataForm.images.length; i ++) {
+		// 	formData.append('upload_images', dataForm.images[i])
+		// }
 
-		// const token = localStorage.getItem('token')
+		// // const token = localStorage.getItem('token')
 
-		axios.post(process.env.REACT_APP_API_URL + '/product', formData, {
-			headers: {
-				'Content-Type': 'multipart/form-data',
-			}
-		})
-		.then((data) => {
-			console.log(data)
-			setDataForm({
-				title: '',
-				price: 0,
-				qty: 0,
-				category: '',
-				brand: '',
-				condition: '',
-				desc: '',
-				images: [],
-			})
-			history.push({
-				pathname: '/store'
-			})
-		})
-		.catch((err) => {
-			console.log(err)
-		})
+		// axios.post(process.env.REACT_APP_API_URL + '/product', formData, {
+		// 	headers: {
+		// 		'Content-Type': 'multipart/form-data',
+		// 	}
+		// })
+		// .then((data) => {
+		// 	console.log(data)
+		// 	setDataForm({
+		// 		title: '',
+		// 		price: 0,
+		// 		qty: 0,
+		// 		category: '',
+		// 		brand: '',
+		// 		condition: '',
+		// 		desc: '',
+		// 		images: [],
+		// 	})
+		// 	history.push({
+		// 		pathname: '/store'
+		// 	})
+		// })
+		// .catch((err) => {
+		// 	console.log(err)
+		// })
 	}
 
 	return (
@@ -160,7 +162,6 @@ const SellProduct = ({ attribute, history }) => {
 									<select name="condition" id="" onChange={dataHandler}>
 										<option value="New">New</option>
 										<option value="Used">Used</option>
-										<option value="Broken">Broken</option>
 									</select>
 								</div>
 							</div>
