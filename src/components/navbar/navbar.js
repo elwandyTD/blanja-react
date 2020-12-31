@@ -14,7 +14,6 @@ import CartIcon from '../../assets/icons/cart.png'
 import UserIcon from '../../assets/icons/user.png'
 import NotifIcon from '../../assets/icons/notification.png'
 import MailIcon from '../../assets/icons/mail.png'
-import ProfileIcon from '../../assets/icons/profile.png'
 
 class navbar extends Component {
 	state = {
@@ -132,8 +131,6 @@ class navbar extends Component {
 			this.setState({
 				isLogin: false
 			})
-
-			console.log(this.state.isLogin)
 
 			const { history } = this.props
 			history.push('/')

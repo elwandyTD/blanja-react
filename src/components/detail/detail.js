@@ -28,7 +28,12 @@ const DetailProduct = ({ product, mprops }) => {
 			setQty(qty - 1)
 		}
 	}
+
 	const plusQty = () => setQty(qty + 1)
+
+	const getProduct = () => {
+
+	}
 
 	// const addToBag = () => {
 	// 	const myBag = JSON.parse(localStorage.getItem('bag'))
@@ -60,7 +65,7 @@ const DetailProduct = ({ product, mprops }) => {
 
 	// console.log(mprops)
 	// const 
-
+	// console.log(product)
 	return (
 		<>
 			<p className="detail-breadcumb mb-4">Home &gt; Category &gt; <b>{product.category_name}</b></p>
@@ -68,7 +73,7 @@ const DetailProduct = ({ product, mprops }) => {
 				<Col xl={5} lg={5} md={6} sm={12} xs={12}>
 					<Row>
 						<Col className="d-flex">
-							<div className="show-image" style={{ backgroundImage: `url('${product.length === 0 ? '' : process.env.REACT_APP_API_URL + product.product_images[0].image_path }')` }}></div>
+							{/* <div className="show-image" style={{ backgroundImage: `url('${product.length === 0 ? '' : process.env.REACT_APP_API_URL + product.product_images[0].image_path }')` }}></div> */}
 						</Col>
 					</Row>
 					<Row className="mt-1">

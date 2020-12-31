@@ -10,7 +10,9 @@ import './store.css'
 class MyStore extends Component {
 
 	getMyProductsDispatch = () => {
-		this.props.dispatch(getProducts('?user_id=2&order=newest&sort=desc'))
+		const user = JSON.parse(localStorage.getItem('user'))
+
+		this.props.dispatch(getProducts(`?user_id=${user.user_id}&order=newest&sort=desc`))
 	}
 
 	componentDidMount = () => {

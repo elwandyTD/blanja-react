@@ -1,3 +1,6 @@
+.cs-banner-section ul.slick-dots {
+	text-align: left;
+}
 .cs-carousel-item {
 	height: 180px;
 	width: 95%;
