@@ -3,7 +3,7 @@ import { Container } from 'react-bootstrap'
 import { connect } from 'react-redux'
 
 import { getNewProducts, getPopularProducts } from '../redux/actionCreators/Product'
-import Navbar from '../components/navbar/navbar'
+import Navbar from '../components/Navbar/Navbar'
 import Banner from '../components/banner/banner'
 import Category from '../components/category/category'
 import Products from '../components/products/products'
@@ -27,7 +27,7 @@ class Home extends Component {
 
 		return (
 			<>
-				<Navbar history={this.props.history} />
+				<Navbar />
 				<Container className="mt-5">
 					<Banner />
 					<Category />

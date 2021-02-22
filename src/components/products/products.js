@@ -16,7 +16,8 @@ export default function Products({ title, subtitle, products }) {
 					return (
 						<Link to={{ pathname: '/products/' + product.product_id, state: { products: products, id: product.product_id } }}  key={index}>
 							<div className="cs-card" >
-								<img src={process.env.REACT_APP_API_URL + product.product_images[0].image_path} alt="" style={{ height: "250px" }} className="cs-head-card" />
+								<div className="cs-head-card" style={{ backgroundImage: `url(${process.env.REACT_APP_API_URL + product.product_images[0].image_path})` }}></div>
+								{/* <img src={process.env.REACT_APP_API_URL + product.product_images[0].image_path} alt="" style={{ height: "250px" }} className="cs-head-card" /> */}
 								{/* <div className="cs-card-head"></div> */}
 								<div className="cs-card-body">
 								<p className="cs-card-title">{product.product_title}</p>

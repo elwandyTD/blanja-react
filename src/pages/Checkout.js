@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Navbar from '../components/navbar/navbar'
+import Navbar from '../components/Navbar/Navbar'
 import { Container } from 'react-bootstrap'
 import MyCheckout from '../components/checkout/checkout'
 

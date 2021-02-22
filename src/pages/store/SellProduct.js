@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import Navbar from '../../components/navbar/navbar'
+import Navbar from '../../components/Navbar/Navbar'
 import Sidebar from '../../components/sidebar/sidebar'
 import Sell from '../../components/store/sell'
 

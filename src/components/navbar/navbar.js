@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { Navbar, Container, Dropdown, Modal, Button, Row, Form } from 'react-bootstrap'
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 // import axios from 'axios'
 import { connect } from 'react-redux'
 import { getColors, getBrands, getCategories, getSizes } from '../../redux/actionCreators/Attribute'
@@ -15,7 +15,7 @@ import UserIcon from '../../assets/icons/user.png'
 import NotifIcon from '../../assets/icons/notification.png'
 import MailIcon from '../../assets/icons/mail.png'
 
-class navbar extends Component {
+class MyNavbar extends Component {
 	state = {
 		query: {
 			color: '',
@@ -369,4 +369,4 @@ const mapsStateToProps = ({ attribute, auth }) => {
 	}
 }
 
-export default connect(mapsStateToProps)(navbar)
+export default connect(mapsStateToProps)(withRouter(MyNavbar))

@@ -7,7 +7,7 @@ import { Container } from 'react-bootstrap'
 import { connect } from 'react-redux'
 
 import { getProducts } from '../redux/actionCreators/Product'
-import Navbar from  '../components/navbar/navbar'
+import Navbar from  '../components/Navbar/Navbar'
 import ProductsComp from '../components/products/products'
 
 class Products extends Component {

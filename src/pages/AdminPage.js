@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Navbar from '../components/navbar/navbar'
+import Navbar from '../components/Navbar/Navbar'
 import { Container, Form, Col, Button } from 'react-bootstrap'
 import axios from 'axios'
 

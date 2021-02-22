@@ -9,6 +9,7 @@
 	background-repeat: no-repeat;
 	text-align: center;
 	transition: .3s;
+	transition-timing-function: ease-out;
 	cursor: pointer;
 }
 

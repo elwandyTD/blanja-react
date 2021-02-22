@@ -21,6 +21,7 @@ class MyStore extends Component {
 
 	render() {
 		const { product } = this.props
+		console.log(product)
 
 		return (
 			<>
