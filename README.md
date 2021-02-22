@@ -18,7 +18,7 @@
 
 ## Description
 
-An E-commerce website thar we can buy and sell new or used goods called Blanja which is created using bootstrap frameworks.
+An E-commerce website thar we can buy and sell new or used goods called Blanja which is created using framework bootstrap for style and ReactJs for development app.
 
 ## Features
 
@@ -86,7 +86,7 @@ Still not ready
 
 ## Related Project
 
-RESTful API for this web application, clone this for development.
+RESTful API for this web application and Mobile version app, clone this for development.
 
 REST API [https://github.com/elwandyTD/blanja-api](https://github.com/elwandyTD/blanja-api)
 
