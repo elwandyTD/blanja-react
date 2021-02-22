@@ -22,7 +22,7 @@ An E-commerce website thar we can buy and sell new or used goods called Blanja w
 
 ## Features
 
-- Search Product
+- Search & Filter Product
 - Add Product
 - Edit Product
 - Edit Profile
@@ -52,13 +52,13 @@ An E-commerce website thar we can buy and sell new or used goods called Blanja w
 Please create and make the changes in the .env file.
 
 ```bash
-REACT_APP_BASEURL = "http://host_backend:port_backend"
+REACT_APP_BASE_URL = "http://host_backend:port_backend"
 ```
 
 Example :
 
 ```bash
-REACT_APP_BASEURL = "http://localhost:4000"
+REACT_APP_BASE_URL = "http://localhost:3000"
 ```
 
 ### Usage
@@ -92,4 +92,4 @@ RESTful API for this web application, clone this for development.
 
 ## License
 
-Distributed under the [MIT](https://github.com/elwandyTD/blanja-app/blob/master/LICENSE) License.
+Distributed under the [MIT](https://github.com/elwandyTD/blanja-react/blob/master/LICENSE) License.
