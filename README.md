@@ -1,4 +1,4 @@
-# Blanja App
+# Blanja Website
 
 <div align="center">
 </div>
@@ -88,7 +88,9 @@ Still not ready
 
 RESTful API for this web application, clone this for development.
 
-<a href="https://github.com/elwandyTD/blanja-api.git">REST API</a>
+REST API [https://github.com/elwandyTD/blanja-api](https://github.com/elwandyTD/blanja-api)
+
+Mobile version [https://github.com/elwandyTD/blanja-react-native](https://github.com/elwandyTD/blanja-react-native)
 
 ## License
 
