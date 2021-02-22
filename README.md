@@ -52,13 +52,13 @@ An E-commerce website thar we can buy and sell new or used goods called Blanja w
 Please create and make the changes in the .env file.
 
 ```bash
-REACT_APP_BASE_URL = "http://host_backend:port_backend"
+REACT_APP_API_URL = "http://host_backend:port_backend"
 ```
 
 Example :
 
 ```bash
-REACT_APP_BASE_URL = "http://localhost:3000"
+REACT_APP_API_URL = "http://localhost:3000"
 ```
 
 ### Usage
