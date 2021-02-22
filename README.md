@@ -1,70 +1,95 @@
-# Getting Started with Create React App
+# Blanja App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div align="center">
+</div>
 
-## Available Scripts
+## Contents
 
-In the project directory, you can run:
+- [Description](#description)
+- [Features](#features)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [ENV](#ENV)
+- [Usage](#Usage)
+- [Screenshoots](#screenshoots)
+- [Demo](#demo)
+- [Related Project](#related-project)
+- [License](#license)
 
-### `npm start`
+## Description
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+An E-commerce website thar we can buy and sell new or used goods called Blanja which is created using bootstrap frameworks.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Features
 
-### `npm test`
+- Search Product
+- Add Product
+- Edit Product
+- Edit Profile
+- etc
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Requirements
 
-### `npm run build`
+- [`Node Js`](https://nodejs.org/en/)
+- [`npm`](https://www.npmjs.com/get-npm)
+- [`ReactJs`](https://reactjs.org/)
+- [`Blanja API`](https://github.com/elwandyTD/blanja-api.git)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone the repo
+   ```sh
+   git clone https://github.com/elwandyTD/blanja-react.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+   This will install the dependencies inside `node_modules`
+   
+### ENV
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Please create and make the changes in the .env file.
 
-### `npm run eject`
+```bash
+REACT_APP_BASEURL = "http://host_backend:port_backend"
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Example :
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+REACT_APP_BASEURL = "http://localhost:4000"
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Usage
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+`node index` OR `nodemon start` OR `npm start`.
 
-## Learn More
+Runs the app in the development mode.<br>
+Open [http://localhost:3000/](http://localhost:3000/) to view it in the browser.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+If you want to build, type `npm run build`.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Screenshoots
 
-### Code Splitting
+<div align="center">
+   <img width="100%" src="./public/Screenshot_15.png">
+   <img width="100%" src="./public/Screenshot_6.png">
+   <img width="100%" src="./public/Screenshot_8.png">
+</div>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Demo
 
-### Analyzing the Bundle Size
+This is Blanja Web build version, let's try it.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Still not ready
 
-### Making a Progressive Web App
+## Related Project
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+RESTful API for this web application, clone this for development.
 
-### Advanced Configuration
+<a href="https://github.com/elwandyTD/blanja-api.git">REST API</a>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## License
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Distributed under the [MIT](https://github.com/elwandyTD/blanja-app/blob/master/LICENSE) License.
