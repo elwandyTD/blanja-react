@@ -82,7 +82,7 @@ If you want to build, type `npm run build`.
 
 This is Blanja Web build version, let's try it.
 
-Still not ready
+Link demo: http://bit.ly/Blanja-Web
 
 ## Related Project
 
