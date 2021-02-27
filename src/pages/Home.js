@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Container } from "react-bootstrap";
 import { connect } from "react-redux";
-import axios from "axios";
+// import axios from "axios";
 
 import {
   getNewProducts,
@@ -34,7 +34,7 @@ class Home extends Component {
     this.getNewProductsDispatch();
     this.getPopularProductsDispatch();
 
-    this.test();
+    // this.test();
   };
 
   render() {
