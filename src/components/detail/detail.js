@@ -8,11 +8,11 @@ import Slider from "react-slick";
 import Rater from "react-rater";
 import "react-rater/lib/react-rater.css";
 import { connect } from "react-redux";
-// import Products from '../products/products'
+import Products from "../products/products";
 
 import "./detail.css";
 
-const DetailProduct = ({ dproduct }) => {
+const DetailProduct = ({ dproduct, pproducts, product }) => {
   // let newProduct = {}
   const [qty, setQty] = useState(1);
   // const [color, setColor] = useState(dproduct.length === 0 ? '' : dproduct.product_colors[0].product_color_id )
@@ -76,7 +76,7 @@ const DetailProduct = ({ dproduct }) => {
 
   // console.log(mprops)
   // const
-  console.log(dproduct, 73);
+  console.log(product, 73);
   return (
     <>
       <p className="detail-breadcumb mb-4">
@@ -288,7 +288,11 @@ const DetailProduct = ({ dproduct }) => {
       </Row>
       <Row>
         <Col>
-          {/* <Products title="You can also like this" subtitle="You’ve never seen it before!" products={products} /> */}
+          <Products
+            title="You can also like this"
+            subtitle="Popular products this week!"
+            products={product && product.popularProducts.data.products}
+          />
         </Col>
       </Row>
       {/* {console.log(product && product)} */}

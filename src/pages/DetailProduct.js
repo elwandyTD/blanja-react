@@ -33,6 +33,8 @@ export default class DetailProduct extends Component {
   };
 
   render() {
+    console.log(this.props);
+    console.log();
     return (
       <>
         <Navbar />
