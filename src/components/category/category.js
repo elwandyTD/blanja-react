@@ -24,7 +24,7 @@ class Category extends Component {
   };
 
   getAllCategory = () => {
-    const url = "http://localhost:8000/category";
+    const url = process.env.REACT_APP_API_URL + "/category";
 
     axios
       .get(url)

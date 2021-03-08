@@ -29,13 +29,6 @@ export const getPopularProducts = () => {
   };
 };
 
-export const Test = () => {
-  return {
-    type: "TEST",
-    payload: axios.get("http://localhost:8000/product/test"),
-  };
-};
-
 export const postProduct = (formData, token) => {
   return {
     type: postProductString,
