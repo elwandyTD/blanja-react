@@ -6,8 +6,8 @@ import { connect } from "react-redux";
 import {
   getNewProducts,
   getPopularProducts,
-  Test,
 } from "../redux/actionCreators/Product";
+import { getCategories } from "../redux/actionCreators/Attribute";
 import Navbar from "../components/Navbar/Navbar";
 import Banner from "../components/banner/banner";
 import Category from "../components/category/category";
@@ -22,18 +22,14 @@ class Home extends Component {
     this.props.dispatch(getPopularProducts());
   };
 
-  test = async () => {
-    const { dispatch } = this.props;
-
-    await dispatch(Test());
-
-    console.log(this.props.product.test);
+  getCategories = () => {
+    this.props.dispatch(getCategories());
   };
 
   componentDidMount = () => {
     this.getNewProductsDispatch();
     this.getPopularProductsDispatch();
-
+    // this.getCategories();
     // this.test();
   };
 
